@@ -1,0 +1,29 @@
+get http://localhost:8080/user-api/users
+
+
+
+### route for registration
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId": 33,
+  "firstName" : "Sandeep",
+  "lastName" : "Monkolla", 
+  "email" : "sandeep@westagilelabs.com", 
+  "password": "sandeep@123"
+}
+
+
+
+
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Sandeep@westagilelabs.com",
+  "password": "sandeep@123"
+
+}
