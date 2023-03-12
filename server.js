@@ -11,6 +11,7 @@ app.listen(port, () => console.log(`server initiated at ${port}`));
 
 // Importing router apps
 const userApp = require("./routes/user.routes");
+const adminApp = require("./routes/admin.routes");
 
 // bodyParser
 app.use(express.json());
@@ -30,15 +31,27 @@ sequelize.sync();
 
 // importing models from the sequelize
 const { User } = require("./models/users.model");
+const { Project } = require("./models/project.model");
+const { Updates } = require("./models/updates.model");
+const { Concerns } = require("./models/concerns.model");
 
 
-
+// assosiation
+User.Project = User.hasOne(Project, { foreignKey: { name: "GdoId" } });
+Project.Updates = Project.hasMany(Updates, {
+  foreignKey: { name: "projectId" },
+});
+Project.Concerns = Project.hasMany(Concerns, {
+  foreignKey: { name: "projectId" },
+});
 
 // importing models from the sequelize
 
 // UserApi
 app.use("/user-api", userApp);
 
+// admin - api
+app.use("/admin-api", adminApp);
 
 // invalid path
 app.use("*", (req, res) => {
