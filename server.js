@@ -12,6 +12,8 @@ app.listen(port, () => console.log(`server initiated at ${port}`));
 // Importing router apps
 const userApp = require("./routes/user.routes");
 const adminApp = require("./routes/admin.routes");
+const gdoApp = require("./routes/gdo.routes");
+
 
 // bodyParser
 app.use(express.json());
@@ -35,7 +37,6 @@ const { Project } = require("./models/project.model");
 const { Updates } = require("./models/updates.model");
 const { Concerns } = require("./models/concerns.model");
 
-
 // assosiation
 User.Project = User.hasOne(Project, { foreignKey: { name: "GdoId" } });
 Project.Updates = Project.hasMany(Updates, {
@@ -52,6 +53,9 @@ app.use("/user-api", userApp);
 
 // admin - api
 app.use("/admin-api", adminApp);
+
+// gdo - api
+app.use("/gdo-api", gdoApp);
 
 // invalid path
 app.use("*", (req, res) => {
