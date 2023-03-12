@@ -27,3 +27,33 @@ Content-Type: application/json
   "password": "sandeep@123"
 
 }
+
+
+
+### admin to get all projects
+get http://localhost:8080/admin-api/projects
+
+
+### admin to get the project details by id
+get http://localhost:8080/admin-api/project/4
+
+
+
+### Creating a project 
+post http://localhost:8080/admin-api/project
+Content-Type: application/json
+
+{
+  "GdoId" : 31,
+  "projectId": 4,
+  "projectName": "Pulse",
+  "client": "Vamsi",
+  "clientAccountManger": "Sashi",
+  "statusOfProject": "In progress",
+  "projectStartDate":"2023-03-10",
+  "projectEndDate": "2023-03-12",
+  "projectFitnessIndicator": "Amber",
+  "domainOfProject": "Node", 
+  "typeOfProject": "Development",
+  "teamSize": 1
+}
