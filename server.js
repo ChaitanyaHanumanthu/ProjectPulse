@@ -14,11 +14,24 @@ const adminApp = require("./routes/admin.routes");
 const gdoApp = require("./routes/gdo.routes");
 const superAdminApp = require("./routes/superAdmin.routes");
 
+const {
+  verifyAdminToken,
+} = require("./middlewares/adminTokenVerify.middleware");
+
+const {
+  verifySuperAdminToken,
+} = require("./middlewares/superAadminTokenVerify.middleware");
+
+const { verifyGdoToken } = require("./middlewares/gdoTokenVerify.middleware");
+
+const {
+  verifyManagerToken,
+} = require("./middlewares/managerTokenVerifiy.middleware");
+
 // bodyParser
 app.use(express.json());
 
 // importing database connection
-
 const sequelize = require("./databases/db.config");
 sequelize
   .authenticate()
@@ -53,20 +66,20 @@ Concerns.User = Concerns.belongsTo(User, { foreignKey: { name: "userId" } });
 
 // importing models from the sequelize
 
-// super admin api
-app.use("/super-admin-api", superAdminApp);
-
 // UserApi
 app.use("/user-api", userApp);
 
+// super admin api
+app.use("/super-admin-api", verifySuperAdminToken, superAdminApp);
+
 // admin - api
-app.use("/admin-api", adminApp);
+app.use("/admin-api", verifyAdminToken, adminApp);
 
 // gdo - api
-app.use("/gdo-api", gdoApp);
+app.use("/gdo-api", verifyGdoToken, gdoApp);
 
 // project - api
-app.use("/project-api", managerApp);
+app.use("/project-api", verifyManagerToken, managerApp);
 
 // invalid path
 app.use("*", (req, res) => {

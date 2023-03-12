@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
-const verifyToken = (req, res, next) => {
+exports.verifySuperAdminToken = (req, res, next) => {
   let bearerToken = req.headers.authorization;
   if (bearerToken == undefined) {
     res.send({ message: "Unauthorized user" });
@@ -20,5 +20,3 @@ const verifyToken = (req, res, next) => {
     }
   }
 };
-
-module.exports = verifyToken;

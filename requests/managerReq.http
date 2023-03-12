@@ -1,5 +1,6 @@
 ### getting all the project updates by project manager
 get http://localhost:8080/project-api/project/4/updates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6IlZhcnVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMxNTM5LCJleHAiOjE2Nzg2MzUxMzl9.pMFQ568tVox-X93U4gLYXQnj3UP3S7ui-NpB5hj4O-A
 
 
 
