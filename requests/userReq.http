@@ -1,0 +1,62 @@
+### get all the users
+get http://localhost:8080/user-api/users
+
+
+### route for registration
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId": 33,
+  "firstName" : "Sandeep",
+  "lastName" : "Monkolla", 
+  "email" : "sandeep@westagilelabs.com", 
+  "password": "sandeep@123"
+}
+
+
+### route for registration
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "firstName" : "Varun",
+  "lastName" : "G", 
+  "email" : "Varun@westagilelabs.com", 
+  "password": "Varun@123"
+}
+
+
+###
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId":103,
+  "firstName" : "Sriinivas",
+  "lastName" : "k", 
+  "email" : "srinivas@westagilelabs.com", 
+  "password": "srinivas@123"
+}
+
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Sandeep@westagilelabs.com",
+  "password": "sandeep@123"
+
+}
+
+
+### Role mapping to the registered users.
+put http://localhost:8080/user-api/role-update
+Content-Type: application/json
+
+{
+  "userId" : 32, 
+  "role" : "GDO"
+}

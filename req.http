@@ -106,3 +106,13 @@ Content-Type: application/json
    "concernStatus": "notSolved",
    "concernMitigatedDate" : "2023-03-14"
 }
+
+
+### Role mapping to the registered users.
+put http://localhost:8080/super-admin-api/role-update
+Content-Type: application/json
+
+{
+  "userId" : 31, 
+  "role" : "GDO"
+}
