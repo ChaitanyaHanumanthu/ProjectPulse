@@ -66,3 +66,12 @@ get http://localhost:8080/gdo-api/gdo/31/projects
 ### projects under gdo based on project id
 get http://localhost:8080/gdo-api/gdo/31/projects/4
 
+
+### Role mapping to the registered users.
+put http://localhost:8080/super-admin-api/role-update
+Content-Type: application/json
+
+{
+  "userId" : 31, 
+  "role" : "GDO"
+}

@@ -1,0 +1,9 @@
+
+### Role mapping to the registered users.
+put http://localhost:8080/super-admin-api/role-update
+Content-Type: application/json
+
+{
+  "userId" : 32, 
+  "role" : "GDO"
+}

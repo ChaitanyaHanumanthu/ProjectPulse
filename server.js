@@ -1,10 +1,8 @@
 // importing the express module
-
 const express = require("express");
 const app = express();
 
 // importing dotenv
-
 require("dotenv").config();
 port = process.env.port; // assigning the port number
 app.listen(port, () => console.log(`server initiated at ${port}`));
@@ -13,6 +11,7 @@ app.listen(port, () => console.log(`server initiated at ${port}`));
 const userApp = require("./routes/user.routes");
 const adminApp = require("./routes/admin.routes");
 const gdoApp = require("./routes/gdo.routes");
+const superAdminApp = require("./routes/superAdmin.routes");
 
 // bodyParser
 app.use(express.json());
@@ -52,6 +51,9 @@ User.Concerns = User.hasMany(Concerns, { foreignKey: { name: "userId" } });
 Concerns.User = Concerns.belongsTo(User, { foreignKey: { name: "userId" } });
 
 // importing models from the sequelize
+
+// super admin api
+app.use("/super-admin-api", superAdminApp);
 
 // UserApi
 app.use("/user-api", userApp);
