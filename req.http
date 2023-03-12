@@ -57,3 +57,12 @@ Content-Type: application/json
   "typeOfProject": "Development",
   "teamSize": 1
 }
+
+
+### projects under gdo 
+get http://localhost:8080/gdo-api/gdo/31/projects
+
+
+### projects under gdo based on project id
+get http://localhost:8080/gdo-api/gdo/31/projects/4
+
