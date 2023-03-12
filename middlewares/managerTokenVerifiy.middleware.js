@@ -9,7 +9,11 @@ const verifyToken = (req, res, next) => {
     let token = bearerToken.split(" ")[1];
     try {
       let status = jwt.verify(token, process.env.SECRET_KEY);
-      next();
+      if (status.role == "pm") {
+        next();
+      } else {
+        res.send({ message: "Unauthorized role access" });
+      }
       // res.send({ message: "loggedin successfull" });
     } catch (err) {
       res.send({ message: "relogin again..." });

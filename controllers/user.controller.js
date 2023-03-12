@@ -31,12 +31,14 @@ const login = expressAsyncHandler(async (req, res) => {
     (await bcryptjs.compare(password, findUser.dataValues.password))
   ) {
     let signedToken = jwt.sign(
-      { name: findUser.dataValues.role },
+      { role: findUser.dataValues.role, email: findUser.dataValues.email },
       process.env.secret_key,
       { expiresIn: "1h" }
     );
     res.send({
-      message: `Welcome back ${findUser.dataValues.firstName}`,
+      message: `Welcome back ${
+        (findUser.dataValues.firstName + " "+ findUser.dataValues.lastName)
+      }`,
       payload: signedToken,
     });
   } else if (findUser == undefined) {

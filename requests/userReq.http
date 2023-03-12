@@ -7,11 +7,12 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId": 33,
-  "firstName" : "Sandeep",
-  "lastName" : "Monkolla", 
-  "email" : "sandeep@westagilelabs.com", 
-  "password": "sandeep@123"
+  "userId": 21,
+  "firstName" : "Naveen",
+  "lastName" : "Yaramasu", 
+  "email" : "Naveen@westagilelabs.com", 
+  "password": "Naveen@123",
+  "role" : "superAdmin"
 }
 
 
