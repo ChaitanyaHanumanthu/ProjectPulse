@@ -1,28 +1,26 @@
 const express = require("express");
 // creating mini router application
-const pjtMgrApp = express.Router();
-
-// importing the verify token middleware
-const verifyToken = require("../middlewares/verifytoken");
+const managerApp = express.Router();
 
 // importing the controllers
 const {
   raiseUpdate,
   getAllUpdates,
   raiseConcern,
-  getAllConcerns
+  getAllConcerns,
 } = require("../controllers/projectManager.controller");
 
 // route for creating an update
-pjtMgrApp.post("/update", raiseUpdate);
+managerApp.post("/update", raiseUpdate);
 
 // route for posting an concern
-pjtMgrApp.post("/concern", raiseConcern);
+managerApp.post("/concern", raiseConcern);
 
 // route for getting all the updates
-pjtMgrApp.get("/project/:projectId/updates", getAllUpdates);
+managerApp.get("/project/:projectId/updates", getAllUpdates);
 
 // routue for getting all the concerns
-pjtMgrApp.get("/project/:projectId/concerns", getAllConcerns)
+managerApp.get("/project/:projectId/concerns", getAllConcerns);
 
-module.exports = pjtMgrApp;
+// exporting the projectManagerApp
+module.exports = managerApp;

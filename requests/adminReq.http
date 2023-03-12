@@ -1,9 +1,12 @@
 ### admin to get all projects
 get http://localhost:8080/admin-api/projects
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMyNDQ3LCJleHAiOjE2Nzg2MzYwNDd9.6PSay4Dxl_lXTRnxgHzggjzG8iaZIGkLoqIzAt_vnHA
 
 
 ### admin to get the project details by id
 get http://localhost:8080/admin-api/project/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMxOTIxLCJleHAiOjE2Nzg2MzU1MjF9.ElZ-qthz6QqPK9Ca7DMoA6cjpo3ln1R7wnNpCeq9zi4
+
 
 
 
