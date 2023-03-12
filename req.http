@@ -67,6 +67,47 @@ get http://localhost:8080/gdo-api/gdo/31/projects
 get http://localhost:8080/gdo-api/gdo/31/projects/4
 
 
+
+### getting all the project updates by project manager
+get http://localhost:8080/project-api/project/4/updates
+
+
+
+### getting all the concerns from all projects
+
+get http://localhost:8080/project-api/project/4/concerns
+
+### Raising an update by the project manager
+post http://localhost:8080/project-api/update
+Content-Type: application/json
+
+{
+  "projectId" : 4,
+  "userId" : 31,
+   "projectStatusUpdate" : "10% completed",
+   "date" : "2023-03-11",
+   "scheduleStatus" : "None",
+   "resourcingStatus" : "Required",
+   "qualityStatus": "Good",
+   "waitingForClientinput" : "False"
+}
+
+### Raising an concern by the project manager
+post http://localhost:8080/project-api/concern
+Content-Type: application/json
+
+{
+  "projectId" : 4,
+  "userId" : 31,
+   "concernDesc" : "Need time",
+   "concernRaisedDate" : "2023-03-11",
+   "concernSeverity" : "medium",
+   "concernByClient" : "false",
+   "concernStatus": "notSolved",
+   "concernMitigatedDate" : "2023-03-14"
+}
+
+
 ### Role mapping to the registered users.
 put http://localhost:8080/super-admin-api/role-update
 Content-Type: application/json
