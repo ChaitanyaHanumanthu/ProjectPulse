@@ -12,6 +12,16 @@ const getProjectPortfolioashboard = expressAsyncHandler(async (req, res) => {
     where: {
       GdoId: GdoId,
     },
+    attributes: [
+      "projectId",
+      "projectName",
+      "client",
+      "clientAccountManager",
+      "statusOfProject",
+      "startDate",
+      "endDate",
+      "projectFitnessIndicator",
+    ],
   });
   res.send({
     message: "All the project details are here",
@@ -25,39 +35,37 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
       projectId: req.params.projectId,
       GdoId: req.params.GdoId,
     },
+    attributes: { exclude: ["projectManager_id", "hrManager_id", "GdoId"] },
     include: [
       {
         association: Project.Updates,
-        include: [
-          {
-            association: Updates.User,
-            attributes: { exclude: ["password", "lastName", "email", "role"] },
-          },
-        ],
+        attributes: { exclude: ["id", "userId"] },
       },
-      {
-        association: Project.Concerns,
-      },
+      { association: Project.Concerns, attributes: { exclude: ["projectId"] } },
       { association: Project.Team },
-      { association: Project.Resource },
     ],
   });
-  //  return project fitness, concern indicator ,Team members get these values from projectRecord
-  let projectFitness = allProjects.dataValues.projectFitnessIndicator;
-  // find team size
-  // let teamSize = projectRecord.dataValues.employeeProjectDetails.length;
-  // find number of concerns is active
-  let concernIndicator = 0;
-  allProjects.concerns.forEach((concern) => {
-    if (concern.concernStatus == "notSolved") concernIndicator++;
-  });
-  res.send({
-    message: `Here is the DETAILED VIEW OF THE PROJECT`,
-    Project_Fitness: projectFitness,
-    Concerns_Indicator: concernIndicator,
-    Details: `All the project details are here`,
-    Projects: allProjects,
-  });
+  if (allProjects == undefined) {
+    res.send({ message: "There is no projects existed with projectId" });
+  } else {
+    //  return project fitness, concern indicator ,Team members get these values from projectRecord
+    let projectFitness = allProjects.dataValues.projectFitnessIndicator;
+    // find team size
+    let teamSize = allProjects.projectTeams.length;
+    // find number of concerns is active
+    let concernIndicator = 0;
+    allProjects.concerns.forEach((concern) => {
+      if (concern.concernStatus == "notSolved") concernIndicator++;
+    });
+    res.send({
+      message: `Here is the DETAILED VIEW OF THE PROJECT`,
+      Project_Fitness: projectFitness,
+      Concerns_Indicator: concernIndicator,
+      teamSiz: teamSize,
+      Details: `All the project details are here`,
+      Projects: allProjects,
+    });
+  }
 });
 
 // route for getting all concerns
@@ -66,10 +74,14 @@ const getConcerns = expressAsyncHandler(async (req, res) => {
   let GdoId = req.params.GdoId;
   let allConcerns = await Concerns.findAll({
     where: {
-      userId: GdoId,
-    },
+      concernRaisedBy: GdoId,
+    },attributes:{exclude:["userId"]}
   });
-  res.send({ message: "All concerns are: ", concerns: allConcerns });
+  if (allConcerns.length == 0) {
+    res.send({ message: "There is no concerns" });
+  } else {
+    res.send({ message: "All concerns are: ", concerns: allConcerns });
+  }
 });
 
 // Team composition

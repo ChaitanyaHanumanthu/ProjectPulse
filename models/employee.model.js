@@ -2,26 +2,24 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
 
 exports.Employees = sequelize.define(
-  "Employees",
+  "employees",
   {
     empId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
-    name: {
+    empName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
-      unique: true,
-    },
-    gender: {
-      type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
   },
   {
+    createdAt: false,
+    updatedAt: false,
     timestamps: false,
     freezeTableName: true,
   }

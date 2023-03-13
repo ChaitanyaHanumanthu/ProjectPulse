@@ -49,7 +49,7 @@ const login = expressAsyncHandler(async (req, res) => {
     let signedToken = jwt.sign(
       { role: findUser.dataValues.role, email: findUser.dataValues.email },
       process.env.secret_key,
-      { expiresIn: "1h" }
+      { expiresIn: "24h" }
     );
     res.send({
       message: `Welcome back ${

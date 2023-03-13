@@ -9,7 +9,7 @@ exports.verifyManagerToken = (req, res, next) => {
     let token = bearerToken.split(" ")[1];
     try {
       let status = jwt.verify(token, process.env.SECRET_KEY);
-      if (status.role == "pm") {
+      if (status.role == "manager") {
         next();
       } else {
         res.send({ message: "Unauthorized role access" });

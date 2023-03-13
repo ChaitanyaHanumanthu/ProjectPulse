@@ -1,20 +1,32 @@
 ### getting all the project updates by project manager
-get http://localhost:8080/project-api/project/4/updates
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6IlZhcnVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMxNTM5LCJleHAiOjE2Nzg2MzUxMzl9.pMFQ568tVox-X93U4gLYXQnj3UP3S7ui-NpB5hj4O-A
+get http://localhost:8080/manager-api/project/4/updates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
 
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Hari@westagilelabs.com",
+  "password": "Hari@123"
+}
 
 
 ### getting all the concerns from all projects
 
-get http://localhost:8080/project-api/project/4/concerns
+get http://localhost:8080/manager-api/project/1/concerns
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwOTI2MCwiZXhwIjoxNjc4Nzk1NjYwfQ.sjzOdUJXSOeEWi36Qh9x2L7nEF1hRXoNUIVXc05wv1g
+
 
 ### Raising an update by the project manager
-post http://localhost:8080/project-api/update
+post http://localhost:8080/manager-api/update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
 Content-Type: application/json
 
 {
-  "projectId" : 4,
-  "userId" : 31,
+  "projectId" : 1,
+  "userId" : 51,
    "projectStatusUpdate" : "10% completed",
    "date" : "2023-03-11",
    "scheduleStatus" : "None",
@@ -24,12 +36,13 @@ Content-Type: application/json
 }
 
 ### Raising an concern by the project manager
-post http://localhost:8080/project-api/concern
+post http://localhost:8080/manager-api/concern
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
 Content-Type: application/json
 
 {
-  "projectId" : 4,
-  "userId" : 31,
+  "projectId" : 2,
+  "concernRaisedBy" : 51,
    "concernDesc" : "Need time",
    "concernRaisedDate" : "2023-03-11",
    "concernSeverity" : "medium",

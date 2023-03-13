@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
+const { User } = require("./users.model");
 
 exports.Concerns = sequelize.define(
   "concerns",
@@ -7,6 +8,13 @@ exports.Concerns = sequelize.define(
     concernDesc: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    concernRaisedBy: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: "userId",
+      },
     },
     concernRaisedDate: {
       type: DataTypes.DATE,

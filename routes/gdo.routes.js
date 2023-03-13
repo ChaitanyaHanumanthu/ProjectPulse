@@ -14,7 +14,7 @@ gdoApp.get(
   getProjectPortfolioashboard
 );
 
-gdoApp.get("/gdo/:GdoId/projects/:projectId", getProjectById);
+gdoApp.get("/gdo/:GdoId/projectDetailedView/:projectId", getProjectById);
 
 gdoApp.get("/gdo/:GdoId/concerns", getConcerns);
 

@@ -4,50 +4,56 @@ Content-Type: application/json
 
 {
   "email" : "Sandeep@westagilelabs.com",
-  "password": "sandeep@123"
+  "password": "Sandeep@123"
 }
+
 
 ### projects under gdo 
 get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgyOTI0LCJleHAiOjE2Nzg2ODY1MjR9.5uiUalRSLWubkLli2NF9aURK9k1pYjWLXyFeDYSjKvo
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
+
+
 
 
 ### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/31/projects/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
+get http://localhost:8080/gdo-api/gdo/31/projectDetailedView/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
-###
-get http://localhost:8080/gdo-api/gdo/31/concerns
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
 
-###
+
+### concerns under gdo 
+get http://localhost:8080/gdo-api/gdo/51/concerns
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA3MTczLCJleHAiOjE2Nzg3OTM1NzN9.lKQGOTCDsD-BC_dflTHNMWSB1Ti-Tiz_ufN3o83tfnk
+
+
+
+### to add team members
 post http://localhost:8080/gdo-api/gdo/31/add-team
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
-
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 {
-  "empId":100,
-  "firstName":"pavan",
-  "role":"frontend",
-  "startDate":"2023/03/08",
+  "empId":311,
+  "firstName":"Chaitanya",
+  "role":"Backend",
+  "startDate":"2023/03/10",
   "endDate":"",
   "status":"In Progress",
   "billingStatus":"billed",
   "exposedToCustomer":"yes",
   "allocationType":"permenant" ,
-  "projectId": 4
+  "projectId": 1
 }
 
 
-###
+### raise a resource request
 post http://localhost:8080/gdo-api/gdo/31/raise-resource-request
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk2NDUwLCJleHAiOjE2Nzg3MDAwNTB9.FaiesQDenqFbhG_NqOVUJQVOsv1_ukA9VRSKIZay-vw
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA3MTczLCJleHAiOjE2Nzg3OTM1NzN9.lKQGOTCDsD-BC_dflTHNMWSB1Ti-Tiz_ufN3o83tfnk
 
 {
   "gdoId" : 31,
-  "projectId" : 5,
+  "projectId" : 2,
   "requestDescription" : "We need few more team members"
 }

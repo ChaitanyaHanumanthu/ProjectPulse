@@ -1,22 +1,31 @@
-
-### Role mapping to the registered users.
-put http://localhost:8080/super-admin-api/role-update
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg
+###Login route
+post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "userId" : 32, 
-  "role" : "GDO"
+  "email" : "Naveen@westagilelabs.com",
+  "password": "Naveen@123"
+}
+
+
+### Role mapping to the registered users.
+put http://localhost:8080/super-admin-api/role-update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+Content-Type: application/json
+
+{
+  "userId" : 999, 
+  "role" : "employee"
 }
 
 
 ### getting all the users
 get http://localhost:8080/super-admin-api/users
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
 
 
 
 
 ### getting all the users
 get http://localhost:8080/super-admin-api/pendingUsers
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
