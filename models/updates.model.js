@@ -17,7 +17,7 @@ exports.Updates = sequelize.define(
       },
     },
     date: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
     scheduleStatus: {

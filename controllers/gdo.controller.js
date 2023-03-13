@@ -1,13 +1,15 @@
+// import expressAsyncHandler
 const expressAsyncHandler = require("express-async-handler");
+
+// importing all required models
 const { Project } = require("../models/project.model");
-const { Updates } = require("../models/updates.model");
 const { Concerns } = require("../models/concerns.model");
 const { Team } = require("../models/teamComposition.model");
 const { Resource } = require("../models/raiseResource.model");
 
+// controller for the projectPortfolioDashboard
 const getProjectPortfolioashboard = expressAsyncHandler(async (req, res) => {
   let GdoId = req.params.GdoId;
-  console.log(Updates.User);
   let allProjects = await Project.findAll({
     where: {
       GdoId: GdoId,
@@ -23,12 +25,20 @@ const getProjectPortfolioashboard = expressAsyncHandler(async (req, res) => {
       "projectFitnessIndicator",
     ],
   });
-  res.send({
-    message: "All the project details are here",
-    Projects: allProjects,
-  });
+  // if there are no projects
+  if (allProjects == undefined) {
+    res.send({ message: "There are no projects to display" });
+
+    // if there are more than one projects to display
+  } else {
+    res.send({
+      message: "All the project details are here",
+      Projects: allProjects,
+    });
+  }
 });
 
+// controller for getting the projects by projectId
 const getProjectById = expressAsyncHandler(async (req, res) => {
   let allProjects = await Project.findOne({
     where: {
@@ -68,29 +78,31 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// route for getting all concerns
-
+// controller for getting all concerns
 const getConcerns = expressAsyncHandler(async (req, res) => {
   let GdoId = req.params.GdoId;
   let allConcerns = await Concerns.findAll({
     where: {
       concernRaisedBy: GdoId,
-    },attributes:{exclude:["userId"]}
+    },
+    attributes: { exclude: ["userId"] },
   });
+  // if there is no concerns
   if (allConcerns.length == 0) {
     res.send({ message: "There is no concerns" });
+    // if there are more than concerns
   } else {
     res.send({ message: "All concerns are: ", concerns: allConcerns });
   }
 });
 
-// Team composition
+// controller for adding team composition
 const addTeam = expressAsyncHandler(async (req, res) => {
   let team = await Team.create(req.body);
   res.send({ Message: "Team added Successfully", Team: team });
 });
 
-// raising a resource request
+// controller for raising resource request
 const raiseResourceRequest = expressAsyncHandler(async (req, res) => {
   let projectId = req.body.projectId;
   let resourceRequest = await Resource.create(req.body);
@@ -99,6 +111,7 @@ const raiseResourceRequest = expressAsyncHandler(async (req, res) => {
   });
 });
 
+// exporting the controllers
 module.exports = {
   getProjectPortfolioashboard,
   getProjectById,

@@ -16,6 +16,7 @@ require("dotenv").config();
 // importing nodemailer
 const nodemailer = require("nodemailer");
 
+// assigning transporter which will make the authentication connection
 const transporter = nodemailer.createTransport({
   service: process.env.Email_Service,
   auth: {
@@ -142,6 +143,7 @@ const resetPassword = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// exporting the controllers - request handlers
 module.exports = {
   register,
   login,

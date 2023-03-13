@@ -1,5 +1,7 @@
 // importing express application
 const express = require("express");
+
+// creating mini app
 const superAdminApp = express.Router(); //superAdminAppp 
 
 

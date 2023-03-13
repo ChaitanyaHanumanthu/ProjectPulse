@@ -1,35 +1,55 @@
-
-### route for registration
-post http://localhost:8080/user-api/register
-Content-Type: application/json
-
-{
-  "userId": 22,
-  "firstName" : "Naveen",
-  "lastName" : "Yarramasu", 
-  "email" : "Naveen@westagilelabs.com", 
-  "password": "Naveen@123",
-  "role": "superadmin"
-}
-
-
-
-### route for registration
-post http://localhost:8080/user-api/register
-Content-Type: application/json
-
-{
-  "userId": 3,
-  "firstName" : "Sashi",
-  "lastName" : "S", 
-  "email" : "Sashi@westagilelabs.com", 
-  "password": "Sashi@123"
-}
-
-
-
+### ----------------------------------------------------------- SUPER ADMIN REQUESTS ------------------------------------------------------
 
 ###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Naveen@westagilelabs.com",
+  "password": "Naveen@123"
+}
+
+
+### Role mapping to the registered users.
+put http://localhost:8080/super-admin-api/role-update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+Content-Type: application/json
+
+{
+  "userId" : 999, 
+  "role" : "employee"
+}
+
+
+### getting all the users
+get http://localhost:8080/super-admin-api/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+
+
+
+
+### getting all the users
+get http://localhost:8080/super-admin-api/pendingUsers
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+
+
+
+
+
+### ----------------------------------------------------------- ADMIN REQUESTS ------------------------------------------------------
+
+### admin to get all projects
+get http://localhost:8080/admin-api/projects
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
+
+### admin to get the project details by id
+get http://localhost:8080/admin-api/project/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
+
+
+### login route
 post http://localhost:8080/user-api/login
 Content-Type: application/json
 
@@ -39,65 +59,130 @@ Content-Type: application/json
 
 }
 
-
-
-### admin to get all projects
-get http://localhost:8080/admin-api/projects
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA4NTM5LCJleHAiOjE2Nzg3OTQ5Mzl9.XniF5fAM4BCCjOQytgXuXF6oKDMZRkva6hk7Y8pZwLs
-
-
-### admin to get the project details by id
-get http://localhost:8080/admin-api/project/1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA4NTM5LCJleHAiOjE2Nzg3OTQ5Mzl9.XniF5fAM4BCCjOQytgXuXF6oKDMZRkva6hk7Y8pZwLs
-
-
-
-
 ### Creating a project 
 post http://localhost:8080/admin-api/project
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 Content-Type: application/json
 
 {
   "GdoId" : 31,
-  "projectId": 4,
+  "projectId": 2,
   "projectName": "Pulse",
   "client": "Vamsi",
-  "clientAccountManger": "Sashi",
+  "clientAccountManager": "Sashi",
   "statusOfProject": "In progress",
   "projectStartDate":"2023-03-10",
   "projectEndDate": "2023-03-12",
   "projectFitnessIndicator": "Amber",
   "domainOfProject": "Node", 
   "typeOfProject": "Development",
+  "projectManager_id" : 101,
+  "hrManager_id": 51,
   "teamSize": 1
+}
+
+###
+get http://localhost:8080/admin-api/resourceRequests
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
+
+
+### ----------------------------------------------------------- GDO REQUESTS ------------------------------------------------------
+
+
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Sandeep@westagilelabs.com",
+  "password": "Sandeep@123"
 }
 
 
 ### projects under gdo 
-get http://localhost:8080/gdo-api/gdo/31/projects
+get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
+
+
 
 
 ### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/31/projects/4
+get http://localhost:8080/gdo-api/gdo/31/projectDetailedView/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
+
+
+### concerns under gdo 
+get http://localhost:8080/gdo-api/gdo/51/concerns
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA3MTczLCJleHAiOjE2Nzg3OTM1NzN9.lKQGOTCDsD-BC_dflTHNMWSB1Ti-Tiz_ufN3o83tfnk
+
+
+
+### to add team members
+post http://localhost:8080/gdo-api/gdo/31/add-team
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
+
+{
+  "empId":311,
+  "firstName":"Chaitanya",
+  "role":"Backend",
+  "startDate":"2023/03/10",
+  "endDate":"",
+  "status":"In Progress",
+  "billingStatus":"billed",
+  "exposedToCustomer":"yes",
+  "allocationType":"permenant" ,
+  "projectId": 1
+}
+
+
+### raise a resource request
+post http://localhost:8080/gdo-api/gdo/31/raise-resource-request
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA3MTczLCJleHAiOjE2Nzg3OTM1NzN9.lKQGOTCDsD-BC_dflTHNMWSB1Ti-Tiz_ufN3o83tfnk
+
+{
+  "gdoId" : 31,
+  "projectId" : 2,
+  "requestDescription" : "We need few more team members"
+}
+
+
+### ----------------------------------------------------------- MANAGER REQUESTS ------------------------------------------------------
 
 ### getting all the project updates by project manager
-get http://localhost:8080/project-api/project/4/updates
+get http://localhost:8080/manager-api/project/4/updates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
 
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Hari@westagilelabs.com",
+  "password": "Hari@123"
+}
 
 
 ### getting all the concerns from all projects
 
-get http://localhost:8080/project-api/project/4/concerns
+get http://localhost:8080/manager-api/project/1/concerns
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwOTI2MCwiZXhwIjoxNjc4Nzk1NjYwfQ.sjzOdUJXSOeEWi36Qh9x2L7nEF1hRXoNUIVXc05wv1g
+
 
 ### Raising an update by the project manager
-post http://localhost:8080/project-api/update
+post http://localhost:8080/manager-api/update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
 Content-Type: application/json
 
 {
-  "projectId" : 4,
-  "userId" : 31,
+  "projectId" : 1,
+  "userId" : 51,
    "projectStatusUpdate" : "10% completed",
    "date" : "2023-03-11",
    "scheduleStatus" : "None",
@@ -107,12 +192,13 @@ Content-Type: application/json
 }
 
 ### Raising an concern by the project manager
-post http://localhost:8080/project-api/concern
+post http://localhost:8080/manager-api/concern
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
 Content-Type: application/json
 
 {
-  "projectId" : 4,
-  "userId" : 31,
+  "projectId" : 2,
+  "concernRaisedBy" : 51,
    "concernDesc" : "Need time",
    "concernRaisedDate" : "2023-03-11",
    "concernSeverity" : "medium",
@@ -122,11 +208,100 @@ Content-Type: application/json
 }
 
 
-### Role mapping to the registered users.
-put http://localhost:8080/super-admin-api/role-update
+
+### ----------------------------------------------------------- USER REQUESTS ------------------------------------------------------
+
+
+### get all the users
+get http://localhost:8080/user-api/users
+
+
+### route for registration
+post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId" : 31, 
+  "userId": 999,
+  "firstName" : "Chinna",
+  "lastName" : "Hanumanthu", 
+  "email" : "userusingmymail@gmail.com", 
+  "password": "Chinna@123"
+}
+
+
+### route for registration
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId": 2,
+  "firstName" : "Varun",
+  "lastName" : "G", 
+  "email" : "Varun@westagilelabs.com", 
+  "password": "Varun@123"
+}
+
+
+###
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId":999,
+  "firstName" : "Chaitanya",
+  "lastName" : "Hanumanthu", 
+  "email" : "userusingmymail@gmail.com", 
+  "password": "Chaitanya@123"
+}
+
+
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Naveen@westagilelabs.com",
+  "password": "Naveen@123"
+
+}
+
+###
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "userusingmymail@gmail.com",
+  "password": "Sample@9"
+
+}
+
+
+
+### Role mapping to the registered users.
+put http://localhost:8080/user-api/role-update
+Content-Type: application/json
+
+{
+  "userId" : 32, 
   "role" : "GDO"
+}
+
+
+
+###  forgotten password
+post http://localhost:8080/user-api/forgot-password
+Content-Type: application/json
+
+{
+  "email" : "userusingmymail@gmail.com"
+}
+
+
+### reset the password
+post http://localhost:8080/user-api/reset-password/email/userusingmymail@gmail.com
+Content-Type: application/json
+
+{
+  "otp" : 10431,
+  "password" : "Sample@9"
 }
