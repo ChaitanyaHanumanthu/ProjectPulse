@@ -1,6 +1,53 @@
-  ### projects under gdo 
-get http://localhost:8080/gdo-api/gdo/31/projects
+###Login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "Sandeep@westagilelabs.com",
+  "password": "sandeep@123"
+}
+
+### projects under gdo 
+get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgyOTI0LCJleHAiOjE2Nzg2ODY1MjR9.5uiUalRSLWubkLli2NF9aURK9k1pYjWLXyFeDYSjKvo
 
 
 ### projects under gdo based on project id
 get http://localhost:8080/gdo-api/gdo/31/projects/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
+
+
+###
+get http://localhost:8080/gdo-api/gdo/31/concerns
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
+
+###
+post http://localhost:8080/gdo-api/gdo/31/add-team
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
+
+
+{
+  "empId":100,
+  "firstName":"pavan",
+  "role":"frontend",
+  "startDate":"2023/03/08",
+  "endDate":"",
+  "status":"In Progress",
+  "billingStatus":"billed",
+  "exposedToCustomer":"yes",
+  "allocationType":"permenant" ,
+  "projectId": 4
+}
+
+
+###
+post http://localhost:8080/gdo-api/gdo/31/raise-resource-request
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk2NDUwLCJleHAiOjE2Nzg3MDAwNTB9.FaiesQDenqFbhG_NqOVUJQVOsv1_ukA9VRSKIZay-vw
+
+{
+  "gdoId" : 31,
+  "projectId" : 5,
+  "requestDescription" : "We need few more team members"
+}

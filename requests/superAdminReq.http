@@ -1,9 +1,22 @@
 
 ### Role mapping to the registered users.
 put http://localhost:8080/super-admin-api/role-update
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg
 Content-Type: application/json
 
 {
   "userId" : 32, 
   "role" : "GDO"
 }
+
+
+### getting all the users
+get http://localhost:8080/super-admin-api/users
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg
+
+
+
+
+### getting all the users
+get http://localhost:8080/super-admin-api/pendingUsers
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgwMzY4LCJleHAiOjE2Nzg2ODM5Njh9.Iz9o4tyw5XZaDLOIfqYqJunHOCZMLhEFrc3ggAOa3Vg

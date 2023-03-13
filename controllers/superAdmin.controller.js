@@ -21,4 +21,26 @@ const roleMapping = expressAsyncHandler(async (req, res) => {
   }
 });
 
-module.exports = roleMapping;
+
+
+// route for getting all the users
+
+const allUsers = expressAsyncHandler(async(req, res)=>{
+  let allUsers = await User.findAll()
+
+  res.send({message: "All users data are: ", users:  allUsers})
+})
+
+module.exports = {roleMapping, allUsers};
+
+
+
+const pendignUsers = expressAsyncHandler(async(req, res)=>{
+  let allUsers = await User.findAll({where:{
+    role: "waiting"
+  }})
+
+  res.send({message: "All users data are: ", users:  allUsers})
+})
+
+module.exports = {roleMapping, allUsers, pendignUsers};

@@ -20,10 +20,11 @@ exports.User = sequelize.define(
     email: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        isEmail: true,
-        contains: "@westagilelabs.com",
-      },
+      unique: true,
+      // validate: {
+      //   isEmail: true,
+      //   contains: "@westagilelabs.com",
+      // },
     },
     password: {
       type: DataTypes.STRING,
