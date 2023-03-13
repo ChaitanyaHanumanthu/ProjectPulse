@@ -21,26 +21,28 @@ const roleMapping = expressAsyncHandler(async (req, res) => {
   }
 });
 
-
-
 // route for getting all the users
 
-const allUsers = expressAsyncHandler(async(req, res)=>{
-  let allUsers = await User.findAll()
+const allUsers = expressAsyncHandler(async (req, res) => {
+  let allUsers = await User.findAll();
 
-  res.send({message: "All users data are: ", users:  allUsers})
-})
+  res.send({ message: "All users data are: ", users: allUsers });
+});
 
-module.exports = {roleMapping, allUsers};
+module.exports = { roleMapping, allUsers };
 
+const pendignUsers = expressAsyncHandler(async (req, res) => {
+  let allUsers = await User.findAll({
+    where: {
+      role: "waiting",
+    },
+  });
+  console.log(allUsers);
+  if (allUsers.length == 0) {
+    res.send({ message: "There is no pending users" });
+  } else {
+    res.send({ message: "All users data are: ", users: allUsers });
+  }
+});
 
-
-const pendignUsers = expressAsyncHandler(async(req, res)=>{
-  let allUsers = await User.findAll({where:{
-    role: "waiting"
-  }})
-
-  res.send({message: "All users data are: ", users:  allUsers})
-})
-
-module.exports = {roleMapping, allUsers, pendignUsers};
+module.exports = { roleMapping, allUsers, pendignUsers };

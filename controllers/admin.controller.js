@@ -1,5 +1,6 @@
 const expressAsyncHandler = require("express-async-handler");
 const { Project } = require("../models/project.model");
+const { Resource } = require("../models/raiseResource.model");
 
 // route for getting all projects
 const getProjects = expressAsyncHandler(async (req, res) => {
@@ -42,4 +43,17 @@ const createProject = expressAsyncHandler(async (req, res) => {
   });
 });
 
-module.exports = { getProjects, createProject, getPorjectById };
+const getResourceRequests = expressAsyncHandler(async (req, res) => {
+  let resources = await Resource.findAll();
+  res.send({
+    message: "Resources raised by GDO's are: ",
+    resourcedate: resources,
+  });
+});
+
+module.exports = {
+  getProjects,
+  createProject,
+  getPorjectById,
+  getResourceRequests,
+};

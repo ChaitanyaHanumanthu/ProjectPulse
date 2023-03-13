@@ -6,6 +6,7 @@ const { DataTypes } = require("sequelize");
 
 // project model
 const { Project } = require("./project.model");
+const { Employees } = require("./employee.model");
 
 // create schema/model for team
 exports.Team = sequelize.define(
@@ -14,6 +15,10 @@ exports.Team = sequelize.define(
     empId: {
       primaryKey: true,
       type: DataTypes.INTEGER,
+      references: {
+        model: Employees,
+        key: "empId",
+      },
     },
     firstName: {
       type: DataTypes.STRING,

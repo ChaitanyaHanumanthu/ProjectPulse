@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
+const { User } = require("./users.model");
 
 exports.Project = sequelize.define(
   "projects",
@@ -55,6 +56,13 @@ exports.Project = sequelize.define(
     hrManager_id: {
       type: DataTypes.INTEGER,
       defaultValue: null,
+    },
+    GdoId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: User,
+        key: "userId",
+      },
     },
   },
   {

@@ -1,11 +1,12 @@
 ### admin to get all projects
 get http://localhost:8080/admin-api/projects
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk5MzI1LCJleHAiOjE2Nzg3MDI5MjV9.fGhMmfK236SemyqZ_o5omqYfOTuEQ-PuKdUKi6x63lo
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 
 
 ### admin to get the project details by id
-get http://localhost:8080/admin-api/project/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMxOTIxLCJleHAiOjE2Nzg2MzU1MjF9.ElZ-qthz6QqPK9Ca7DMoA6cjpo3ln1R7wnNpCeq9zi4
+get http://localhost:8080/admin-api/project/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
 
 
 ### login route
@@ -20,19 +21,26 @@ Content-Type: application/json
 
 ### Creating a project 
 post http://localhost:8080/admin-api/project
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 Content-Type: application/json
 
 {
   "GdoId" : 31,
-  "projectId": 4,
+  "projectId": 2,
   "projectName": "Pulse",
   "client": "Vamsi",
-  "clientAccountManger": "Sashi",
+  "clientAccountManager": "Sashi",
   "statusOfProject": "In progress",
   "projectStartDate":"2023-03-10",
   "projectEndDate": "2023-03-12",
   "projectFitnessIndicator": "Amber",
   "domainOfProject": "Node", 
   "typeOfProject": "Development",
+  "projectManager_id" : 101,
+  "hrManager_id": 51,
   "teamSize": 1
 }
+
+###
+get http://localhost:8080/admin-api/resourceRequests
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
