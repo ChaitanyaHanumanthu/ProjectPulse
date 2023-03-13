@@ -3,12 +3,7 @@ const express = require("express");
 const managerApp = express.Router();
 
 // importing the controllers
-const {
-  raiseUpdate,
-  getAllUpdates,
-  raiseConcern,
-  getAllConcerns,
-} = require("../controllers/projectManager.controller");
+const {raiseUpdate,getAllUpdates,raiseConcern,getAllConcerns,} = require("../controllers/projectManager.controller");
 
 // route for creating an update
 managerApp.post("/update", raiseUpdate);

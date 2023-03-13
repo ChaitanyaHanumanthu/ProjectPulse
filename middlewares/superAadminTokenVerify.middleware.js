@@ -9,7 +9,7 @@ exports.verifySuperAdminToken = (req, res, next) => {
     let token = bearerToken.split(" ")[1];
     try {
       let status = jwt.verify(token, process.env.SECRET_KEY);
-      if (status.role == "gdo") {
+      if (status.role == "superadmin") {
         next();
       } else {
         res.send({ message: "Unauthorized role access" });

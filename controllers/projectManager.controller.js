@@ -6,9 +6,7 @@ const { Concerns } = require("../models/concerns.model");
 
 const raiseUpdate = expressAsyncHandler(async (req, res) => {
   let projectUpdate = await Updates.create(req.body, {
-    include: {
-      association: Project.Updates,
-    },
+    include: {association: Project.Updates},
   });
   res.send({
     message: `Update about the project by ${req.body.userId}`,
@@ -18,9 +16,7 @@ const raiseUpdate = expressAsyncHandler(async (req, res) => {
 
 const raiseConcern = expressAsyncHandler(async (req, res) => {
   let projectUpdate = await Concerns.create(req.body, {
-    include: {
-      association: Project.Concerns,
-    },
+    include: {association: Project.Concerns},
   });
   res.send({
     message: `Update about the project by ${req.body.userId}`,
@@ -30,9 +26,7 @@ const raiseConcern = expressAsyncHandler(async (req, res) => {
 
 const getAllUpdates = expressAsyncHandler(async (req, res) => {
   let allUpdates = await Updates.findAll({
-    where: {
-      projectId: req.params.projectId,
-    },
+    where: {projectId: req.params.projectId},
   });
   res.send({
     message: `All updates from the project ${allUpdates.projectId}`,
@@ -42,9 +36,7 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
 
 const getAllConcerns = expressAsyncHandler(async (req, res) => {
   let allConcerns = await Concerns.findAll({
-    where: {
-      projectId: req.params.projectId,
-    },
+    where: {projectId: req.params.projectId},
   });
   res.send({
     message: `All Concerns from the project ${allConcerns.projectId}`,

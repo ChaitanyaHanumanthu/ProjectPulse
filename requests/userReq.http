@@ -7,12 +7,12 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId": 21,
-  "firstName" : "Naveen",
-  "lastName" : "Yaramasu", 
-  "email" : "Naveen@westagilelabs.com", 
-  "password": "Naveen@123",
-  "role" : "superAdmin"
+  "userId": 32,
+  "firstName" : "Sandeep",
+  "lastName" : "Monkolla", 
+  "email" : "Sandeep@westagilelabs.com", 
+  "password": "Sandeep@123",
+  "role" : "gdo"
 }
 
 
@@ -34,11 +34,11 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId":103,
-  "firstName" : "Sriinivas",
-  "lastName" : "k", 
-  "email" : "srinivas@westagilelabs.com", 
-  "password": "srinivas@123"
+  "userId":999,
+  "firstName" : "Chaitanya",
+  "lastName" : "Hanumanthu", 
+  "email" : "userusingmymail@gmail.com", 
+  "password": "Chaitanya@123"
 }
 
 
@@ -47,10 +47,21 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Sashi@westagilelabs.com",
-  "password": "Sashi@123"
+  "email" : "Naveen@westagilelabs.com",
+  "password": "Naveen@123"
 
 }
+
+###
+post http://localhost:8080/user-api/login
+Content-Type: application/json
+
+{
+  "email" : "userusingmymail@gmail.com",
+  "password": "Chaitanya@9"
+
+}
+
 
 
 ### Role mapping to the registered users.
@@ -60,4 +71,24 @@ Content-Type: application/json
 {
   "userId" : 32, 
   "role" : "GDO"
+}
+
+
+
+###  forgotten password
+post http://localhost:8080/user-api/forgot-password
+Content-Type: application/json
+
+{
+  "email" : "userusingmymail@gmail.com"
+}
+
+
+### reset the password
+post http://localhost:8080/user-api/reset-password/email/userusingmymail@gmail.com
+Content-Type: application/json
+
+{
+  "otp" : 18634,
+  "password" : "Chaitanya@9"
 }
