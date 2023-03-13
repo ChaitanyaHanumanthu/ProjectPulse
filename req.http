@@ -1,6 +1,3 @@
-get http://localhost:8080/user-api/users
-
-
 
 ### route for registration
 post http://localhost:8080/user-api/register

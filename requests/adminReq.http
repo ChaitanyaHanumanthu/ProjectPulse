@@ -1,6 +1,6 @@
 ### admin to get all projects
 get http://localhost:8080/admin-api/projects
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMyNDQ3LCJleHAiOjE2Nzg2MzYwNDd9.6PSay4Dxl_lXTRnxgHzggjzG8iaZIGkLoqIzAt_vnHA
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk5MzI1LCJleHAiOjE2Nzg3MDI5MjV9.fGhMmfK236SemyqZ_o5omqYfOTuEQ-PuKdUKi6x63lo
 
 
 ### admin to get the project details by id
@@ -8,7 +8,15 @@ get http://localhost:8080/admin-api/project/4
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQURNSU4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjMxOTIxLCJleHAiOjE2Nzg2MzU1MjF9.ElZ-qthz6QqPK9Ca7DMoA6cjpo3ln1R7wnNpCeq9zi4
 
 
+### login route
+post http://localhost:8080/user-api/login
+Content-Type: application/json
 
+{
+  "email" : "Sashi@westagilelabs.com",
+  "password": "Sashi@123"
+
+}
 
 ### Creating a project 
 post http://localhost:8080/admin-api/project

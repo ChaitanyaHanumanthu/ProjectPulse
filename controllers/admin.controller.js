@@ -1,5 +1,4 @@
 const expressAsyncHandler = require("express-async-handler");
-const { Concerns } = require("../models/concerns.model");
 const { Project } = require("../models/project.model");
 
 // route for getting all projects

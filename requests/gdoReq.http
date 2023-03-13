@@ -4,17 +4,18 @@ Content-Type: application/json
 
 {
   "email" : "Sandeep@westagilelabs.com",
-  "password": "sandeep@123"
+  "password": "Sandeep@123"
 }
 
 ### projects under gdo 
 get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NjgyOTI0LCJleHAiOjE2Nzg2ODY1MjR9.5uiUalRSLWubkLli2NF9aURK9k1pYjWLXyFeDYSjKvo
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk5MzY2LCJleHAiOjE2Nzg3MDI5NjZ9.I_m5cFBbRkwEsk6tje6NajIIa_XU05Fl3tVq-BXeMkk
 
 
 ### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/31/projects/4
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJzYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njg3MjI2LCJleHAiOjE2Nzg2OTA4MjZ9.G5nI3xSIa_-hkmom5wJ20Xmihg3DzI-DWnZ7YFTbsyQ
+get http://localhost:8080/gdo-api/gdo/31/projectDetailedView/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4Njk5MzY2LCJleHAiOjE2Nzg3MDI5NjZ9.I_m5cFBbRkwEsk6tje6NajIIa_XU05Fl3tVq-BXeMkk
+
 
 
 ###

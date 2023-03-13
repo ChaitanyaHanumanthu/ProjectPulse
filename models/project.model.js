@@ -15,15 +15,20 @@ exports.Project = sequelize.define(
     },
     client: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    clientAccountManager: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     statusOfProject: {
       type: DataTypes.STRING,
     },
-    projectStartDate: {
+    startDate: {
       type: DataTypes.DATEONLY,
       // allowNull: false,
     },
-    projectEndDate: {
+    endDate: {
       type: DataTypes.DATEONLY,
       // allowNull: false,
     },
@@ -50,7 +55,6 @@ exports.Project = sequelize.define(
     hrManager_id: {
       type: DataTypes.INTEGER,
       defaultValue: null,
-      
     },
   },
   {

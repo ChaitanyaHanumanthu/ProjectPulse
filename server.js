@@ -45,7 +45,7 @@ const { Resource } = require("./models/raiseResource.model");  //resource model
 
 // assosiation
 // assosiation between user and project - one to many relationships
-User.Project = User.hasOne(Project, { foreignKey: { name: "GdoId" } });
+User.Project = User.hasMany(Project, { foreignKey: { name: "GdoId" } });
 
 // assosiation between project and updates - one to many relationship
 Project.Updates = Project.hasMany(Updates, {foreignKey: { name: "projectId" },});
@@ -60,23 +60,23 @@ User.Updates = User.hasMany(Updates, { foreignKey: { name: "userId" } });
 Updates.User = Updates.belongsTo(User, { foreignKey: { name: "userId" } });
 
 // assosiation between user and concerns - one to many relationship
-User.Concerns = User.hasMany(Concerns, { foreignKey: { name: "userId" } });
+User.Concerns = User.hasMany(Concerns, { foreignKey: { name: "concernRaisedBy" } });
 
 // assosiation between concerns and user - belongs to  relationship
 Concerns.User = Concerns.belongsTo(User, { foreignKey: { name: "userId" } });
 
 // assosiation between team and projects - has many
-Project.Team = Project.hasMany(Team, {foreignKey:{name: "projectId"}})
+Project.Team = Project.hasMany(Team, {foreignKey:{name: "projectId"}});
 
 // assosiation between team and projects - has many
-Project.Resource = Project.hasMany(Resource, {foreignKey: {name: "projectId"}})
+Project.Resource = Project.hasMany(Resource, {foreignKey: {name: "projectId"}});
 
 // importing models from the sequelize
 app.use("/user-api", userApp); // UserApi
 app.use("/super-admin-api", verifySuperAdminToken, superAdminApp); // super admin api
 app.use("/admin-api", verifyAdminToken, adminApp); // admin - api
 app.use("/gdo-api", verifyGdoToken, gdoApp); // gdo - api
-app.use("/project-api", verifyManagerToken, managerApp); // project - api
+app.use("/manager-api", verifyManagerToken, managerApp); // project - api
 
 // invalid path handler
 app.use("*", (req, res) => {
