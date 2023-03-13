@@ -5,7 +5,6 @@ const sequelize = require("../databases/db.config");
 const { DataTypes } = require("sequelize");
 
 // project model
-const { Project } = require("./project.model");
 const { Employees } = require("./employee.model");
 
 // create schema/model for team

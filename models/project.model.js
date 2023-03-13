@@ -52,10 +52,18 @@ exports.Project = sequelize.define(
     projectManager_id: {
       type: DataTypes.INTEGER,
       defaultValue: null,
+      references: {
+        model: User,
+        key: "userId",
+      },
     },
     hrManager_id: {
       type: DataTypes.INTEGER,
       defaultValue: null,
+      references: {
+        model: User,
+        key: "userId",
+      },
     },
     GdoId: {
       type: DataTypes.INTEGER,

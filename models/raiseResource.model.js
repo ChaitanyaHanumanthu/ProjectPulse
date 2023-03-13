@@ -26,7 +26,7 @@ exports.Resource = sequelize.define(
         key: "projectId",
       },
     },
-    requestDescription: {
+    requestDesc: {
       type: DataTypes.STRING,
       allowNull: false,
     },

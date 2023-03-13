@@ -1,9 +1,17 @@
+// importing the express module
 const express = require("express");
+
 // creating mini router application
 const managerApp = express.Router();
 
 // importing the controllers
-const {raiseUpdate,getAllUpdates,raiseConcern,getAllConcerns,} = require("../controllers/projectManager.controller");
+const {
+  raiseUpdate,
+  getAllUpdates,
+  raiseConcern,
+  getAllConcerns,
+  deleteUpdate,
+} = require("../controllers/projectManager.controller");
 
 // route for creating an update
 managerApp.post("/update", raiseUpdate);
@@ -16,6 +24,9 @@ managerApp.get("/project/:projectId/updates", getAllUpdates);
 
 // routue for getting all the concerns
 managerApp.get("/project/:projectId/concerns", getAllConcerns);
+
+// route for delete the concern
+managerApp.delete("/project/project-update/:id", deleteUpdate);
 
 // exporting the projectManagerApp
 module.exports = managerApp;

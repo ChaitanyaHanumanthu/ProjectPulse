@@ -1,4 +1,6 @@
+// importing the express application
 const express = require("express");
+
 // creating mini router application
 const userApp = express.Router();
 
