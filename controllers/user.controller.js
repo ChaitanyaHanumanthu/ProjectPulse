@@ -118,7 +118,11 @@ const forgotpassword = expressAsyncHandler(async (req, res) => {
 // route for getting all the users
 const allUsers = expressAsyncHandler(async (req, res) => {
   let allUsers = await User.findAll();
-  res.send({ message: "All users in the database: ", users: allUsers });
+  if (allUsers.length==0) {
+    res.send({ message: "There are no users existed" });
+  } else {
+    res.send({ message: "All users in the database: ", users: allUsers });
+  }
 });
 
 //route for reset the password

@@ -1,10 +1,16 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
+const { Project } = require("./project.model");
 const { User } = require("./users.model");
 
 exports.Updates = sequelize.define(
   "updates",
   {
+    updateId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     projectStatusUpdate: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,6 +20,13 @@ exports.Updates = sequelize.define(
       references: {
         model: User,
         key: "userId",
+      },
+    },
+    projectId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Project,
+        key: "projectId",
       },
     },
     date: {

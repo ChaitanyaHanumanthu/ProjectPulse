@@ -155,7 +155,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZ
 ### ----------------------------------------------------------- MANAGER REQUESTS ------------------------------------------------------
 
 ### getting all the project updates by project manager
-get http://localhost:8080/manager-api/project/4/updates
+get http://localhost:8080/manager-api/project/1/updates
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
 
 

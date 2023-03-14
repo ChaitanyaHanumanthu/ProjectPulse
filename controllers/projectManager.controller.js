@@ -82,7 +82,7 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
   // if there are more than one updates
   else {
     res.send({
-      message: `All updates from the project ${allUpdates.projectId}`,
+      message: `All updates from the project ${req.params.projectId}`,
       updates: allUpdates,
     });
   }
@@ -90,33 +90,20 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
 
 // controller for getting the updates before two weeks
 const getLastTwoWeekUpdates = expressAsyncHandler(async (req, res) => {
-  // getting all the updates
-  let allUpdates = await Updates.findAll({
-    where: { projectId: req.params.projectId },
-  });
-  // if the update count is 0
-  if (allUpdates.length == 0) {
-    res.send({
-      message: `There is no Updates under this project id ${req.params.projectId}`,
+    let lastTwoWeekUpdates = await Updates.findAll({
+      where: {
+        date: {
+          [Op.gt]: new Date(Date.now()-1000*60*60*24*14) //milliseconds for 14 days
+        },
+      },
     });
-  }
-  // If updates are more than one in last two weeks
-  else {
-    // retrieveing the project updates only before 2 weeks
-    // let today = new Date();
-    // let beforeTwoWeeks = new Date();
-    // beforeTwoWeeks.setDate(today.getDate() - 14);
-
-    // let lastTwoWeekUpdates = await allUpdates.getProjectUpdates({
-    //   where: {
-    //     date: {
-    //       [Op.between]: [beforeTwoWeeks, today],
-    //     },
-    //   },
-    // });
+    if(lastTwoWeekUpdates.length==0){
+      res.send({message: "There are no updates from last two weeks"})
+    }else{
+      
     res.send({
-      message: `All updates from the project ${allUpdates.projectId}`,
-      updates: allUpdates,
+      message: `All updates from the project ${req.params.projectId}`,
+      updates: lastTwoWeekUpdates,
     });
   }
 });
@@ -145,7 +132,7 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
     // if the concern count is more than 1
   } else {
     res.send({
-      message: `All Concerns from the project ${allConcerns.projectId}`,
+      message: `All Concerns from the project`,
       concerns: allConcerns,
     });
   }
@@ -154,8 +141,9 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
 // exporting the controllers
 module.exports = {
   raiseUpdate,
-  getAllUpdates,
   raiseConcern,
+  getAllUpdates,
   getAllConcerns,
   deleteUpdate,
+  getLastTwoWeekUpdates
 };

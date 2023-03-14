@@ -20,11 +20,11 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId": 2,
-  "firstName" : "Varun",
-  "lastName" : "G", 
-  "email" : "Varun@westagilelabs.com", 
-  "password": "Varun@123"
+  "userId": 21,
+  "firstName" : "Sandeep",
+  "lastName" : "Monkolla", 
+  "email" : "Sandeep@westagilelabs.com", 
+  "password": "Sandeep@123"
 }
 
 
@@ -33,11 +33,11 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId":999,
-  "firstName" : "Chaitanya",
-  "lastName" : "Hanumanthu", 
-  "email" : "userusingmymail@gmail.com", 
-  "password": "Chaitanya@123"
+  "userId":2,
+  "firstName" : "Varun",
+  "lastName" : "B", 
+  "email" : "Varun@westagilelabs.com", 
+  "password": "Varun@123"
 }
 
 
@@ -46,10 +46,10 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Naveen@westagilelabs.com",
-  "password": "Naveen@123"
-
+  "email" : "Varun@westagilelabs.com",
+  "password": "Varun@123"
 }
+
 
 ###
 post http://localhost:8080/user-api/login
@@ -58,20 +58,17 @@ Content-Type: application/json
 {
   "email" : "userusingmymail@gmail.com",
   "password": "Sample@9"
-
 }
 
 
-
-### Role mapping to the registered users.
+### Role mapping to the registered users
 put http://localhost:8080/user-api/role-update
 Content-Type: application/json
 
 {
-  "userId" : 32, 
-  "role" : "GDO"
+  "userId" : 2, 
+  "role" : "admin"
 }
-
 
 
 ###  forgotten password

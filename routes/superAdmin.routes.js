@@ -6,7 +6,11 @@ const superAdminApp = express.Router(); //superAdminAppp
 
 
 // importing rolemapping from controller
-const {roleMapping, allUsers, pendignUsers} = require("../controllers/superAdmin.controller");
+const {
+  roleMapping,
+  allUsers,
+  pendignUsers
+} = require("../controllers/superAdmin.controller");
 
 // route for update the role
 superAdminApp.put("/role-update", roleMapping);

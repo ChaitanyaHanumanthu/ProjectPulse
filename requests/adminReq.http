@@ -25,22 +25,26 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iL
 Content-Type: application/json
 
 {
-  "GdoId" : 31,
-  "projectId": 2,
+  "GdoId" : 21,
+  "projectId": 1,
   "projectName": "Pulse",
   "client": "Vamsi",
   "clientAccountManager": "Sashi",
   "statusOfProject": "In progress",
-  "projectStartDate":"2023-03-10",
-  "projectEndDate": "2023-03-12",
+  "startDate":"2023-03-10",
+  "endDate": "2023-03-12",
   "projectFitnessIndicator": "Amber",
   "domainOfProject": "Node", 
   "typeOfProject": "Development",
-  "projectManager_id" : 101,
-  "hrManager_id": 51,
   "teamSize": 1
 }
 
-###
+###  for get all the resource requests
 get http://localhost:8080/admin-api/resourceRequests
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
+
+### for deleting a specific project
+delete http://localhost:8080/admin-api/project/2
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+

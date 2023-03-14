@@ -1,10 +1,16 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
+const { Project } = require("./project.model");
 const { User } = require("./users.model");
 
 exports.Concerns = sequelize.define(
   "concerns",
   {
+    concernId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     concernDesc: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,6 +20,13 @@ exports.Concerns = sequelize.define(
       references: {
         model: User,
         key: "userId",
+      },
+    },
+    projectId: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Project,
+        key: "projectId",
       },
     },
     concernRaisedDate: {
@@ -33,7 +46,7 @@ exports.Concerns = sequelize.define(
       allowNull: false,
     },
     concernMitigatedDate: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false,
     },
   },
