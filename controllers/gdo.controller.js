@@ -52,7 +52,7 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
       projectId: req.params.projectId,
       GdoId: req.params.GdoId,
     },
-    attributes: { exclude: ["projectManager_id", "hrManager_id", "GdoId"] },
+    attributes: { exclude: ["projectManager_id", "hrManager_id", "GdoId", "teamSize"] },
     include: [
       {
         association: Project.Updates,
