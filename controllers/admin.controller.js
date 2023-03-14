@@ -1,9 +1,11 @@
 // importing express async handler
 const expressAsyncHandler = require("express-async-handler");
 
+
 // importing required models
 const { Project } = require("../models/project.model");
 const { Resource } = require("../models/raiseResource.model");
+
 
 // controller  for getting all projects
 const getProjects = expressAsyncHandler(async (req, res) => {
@@ -14,18 +16,22 @@ const getProjects = expressAsyncHandler(async (req, res) => {
       { association: Project.Concerns },
     ],
   });
+  if(allProjects.length == 0){
+    res.send({message: "There is no projects to display"})
+  }else{
   res.send({
     message: "All the project details are here",
     Projects: allProjects,
   });
+}
 });
+
+
 
 // controller for getting the projects by id
 const getPorjectById = expressAsyncHandler(async (req, res) => {
   let findProject = await Project.findOne({
-    where: {
-      projectId: req.params.projectId,
-    },
+    where: {projectId: req.params.projectId},
     include: [
       { association: Project.Updates },
       { association: Project.Concerns },
@@ -43,6 +49,8 @@ const getPorjectById = expressAsyncHandler(async (req, res) => {
   }
 });
 
+
+
 // route for creating and assigning a project
 const createProject = expressAsyncHandler(async (req, res) => {
   let projectCreation = await Project.create(req.body);
@@ -52,11 +60,13 @@ const createProject = expressAsyncHandler(async (req, res) => {
   });
 });
 
+
+
 // controller for getting all the resource requests
 const getResourceRequests = expressAsyncHandler(async (req, res) => {
   let resources = await Resource.findAll();
   // if there are no resources
-  if (resources == undefined) {
+  if (resources.length==0) {
     res.send({ message: "There is no resource requests" });
     // if there are more than one resources
   } else {
@@ -67,9 +77,18 @@ const getResourceRequests = expressAsyncHandler(async (req, res) => {
   }
 });
 
+
+// controller for deleting a project
+const deleteProject = expressAsyncHandler(async(req, res)=>{
+  let deleteProject = await Project.destroy({where:{projectId: req.params.projectId}})
+  res.send({message: `Project with ${req.params.projectId} is deleted `})
+})
+
+
 module.exports = {
   getProjects,
   createProject,
   getPorjectById,
   getResourceRequests,
+  deleteProject
 };

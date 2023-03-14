@@ -12,6 +12,11 @@ const { Project } = require("../models/project.model");
 exports.Resource = sequelize.define(
   "resource",
   {
+    resourceId: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
     gdoId: {
       type: DataTypes.INTEGER,
       references: {

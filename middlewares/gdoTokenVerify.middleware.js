@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
 // here is the function to verify the token
-exports.veifyGdoToken = (req, res, next) => {
+exports.verifyGdoToken = (req, res, next) => {
   // getting the token from the request header
   let bearerToken = req.headers.authorization;
   // checking weather there is a tokoen or not
@@ -24,7 +24,8 @@ exports.veifyGdoToken = (req, res, next) => {
         res.send({ message: "Unauthorized role access" });
       }
       // res.send({ message: "loggedin successfull" });
-    } catch (err) {
+    }
+    catch (err) {
       // if token is expired
       res.send({ message: "relogin again..." });
     }

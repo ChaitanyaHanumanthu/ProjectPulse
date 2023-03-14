@@ -24,7 +24,8 @@ exports.verifyAdminToken = (req, res, next) => {
         res.send({ message: "Unauthorized role access" });
       }
       // res.send({ message: "loggedin successfull" });
-    } catch (err) {
+    } 
+    catch (err) {
       // if token is expired
       res.send({ message: "relogin again..." });
     }

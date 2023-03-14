@@ -1,6 +1,12 @@
 ### getting all the project updates by project manager
-get http://localhost:8080/manager-api/project/4/updates
+get http://localhost:8080/manager-api/project/1/all-updates
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
+
+
+### getting last week updates
+get http://localhost:8080/manager-api/project/1/2-week-updates
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
+
 
 
 ###Login route
@@ -15,7 +21,7 @@ Content-Type: application/json
 
 ### getting all the concerns from all projects
 
-get http://localhost:8080/manager-api/project/1/concerns
+get http://localhost:8080/manager-api/project/2/concerns
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwOTI2MCwiZXhwIjoxNjc4Nzk1NjYwfQ.sjzOdUJXSOeEWi36Qh9x2L7nEF1hRXoNUIVXc05wv1g
 
 
@@ -26,9 +32,9 @@ Content-Type: application/json
 
 {
   "projectId" : 1,
-  "userId" : 51,
+  "userId" : 21,
    "projectStatusUpdate" : "10% completed",
-   "date" : "2023-03-11",
+   "date" : "2023-02-11",
    "scheduleStatus" : "None",
    "resourcingStatus" : "Required",
    "qualityStatus": "Good",
@@ -42,7 +48,7 @@ Content-Type: application/json
 
 {
   "projectId" : 2,
-  "concernRaisedBy" : 51,
+  "concernRaisedBy" : 21,
    "concernDesc" : "Need time",
    "concernRaisedDate" : "2023-03-11",
    "concernSeverity" : "medium",

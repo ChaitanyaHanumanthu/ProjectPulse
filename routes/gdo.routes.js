@@ -10,14 +10,11 @@ const {
   getProjectById,
   getConcerns,
   addTeam,
-  raiseResourceRequest
+  raiseResourceRequest,
 } = require("..//controllers/gdo.controller");
 
 // route for getting the projects dashboard
-gdoApp.get(
-  "/gdo/:GdoId/projectPortfolioDashboard",
-  getProjectPortfolioashboard
-);
+gdoApp.get("/gdo/:GdoId/projectPortfolioDashboard",getProjectPortfolioashboard);
 
 // route for getting the projects based on the projectId
 gdoApp.get("/gdo/:GdoId/projectDetailedView/:projectId", getProjectById);
@@ -29,7 +26,7 @@ gdoApp.get("/gdo/:GdoId/concerns", getConcerns);
 gdoApp.post("/gdo/:GdoId/add-team", addTeam);
 
 // route for raising a project resource request
-gdoApp.post("/gdo/:GdoId/raise-resource-request", raiseResourceRequest)
+gdoApp.post("/gdo/:GdoId/raise-resource-request", raiseResourceRequest);
 
 // exporting the mini gdo App
 module.exports = gdoApp;
