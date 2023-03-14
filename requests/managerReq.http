@@ -32,13 +32,13 @@ Content-Type: application/json
 
 {
   "projectId" : 1,
-  "userId" : 21,
-   "projectStatusUpdate" : "10% completed",
-   "date" : "2023-02-11",
+  "userId" : 73,
+   "projectStatusUpdate" : "100% completed",
+   "date" : "2023-03-10",
    "scheduleStatus" : "None",
-   "resourcingStatus" : "Required",
+   "resourcingStatus" : "Completed",
    "qualityStatus": "Good",
-   "waitingForClientinput" : "False"
+   "waitingForClientinput" : "True"
 }
 
 ### Raising an concern by the project manager
@@ -47,12 +47,12 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlc
 Content-Type: application/json
 
 {
-  "projectId" : 2,
-  "concernRaisedBy" : 21,
-   "concernDesc" : "Need time",
-   "concernRaisedDate" : "2023-03-11",
+  "projectId" : 1,
+  "concernRaisedBy" : 72,
+   "concernDesc" : "Need review",
+   "concernRaisedDate" : "2023-03-13",
    "concernSeverity" : "medium",
    "concernByClient" : "false",
    "concernStatus": "notSolved",
-   "concernMitigatedDate" : "2023-03-14"
+   "concernMitigatedDate" : "2023-03-13"
 }

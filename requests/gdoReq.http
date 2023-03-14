@@ -9,14 +9,14 @@ Content-Type: application/json
 
 
 ### projects under gdo 
-get http://localhost:8080/gdo-api/gdo/21/projectPortfolioDashboard
+get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
 
 
 ### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/21/projectDetailedView/1
+get http://localhost:8080/gdo-api/gdo/31/projectDetailedView/1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
@@ -29,13 +29,13 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZ
 
 
 ### to add team members
-post http://localhost:8080/gdo-api/gdo/21/add-team
+post http://localhost:8080/gdo-api/gdo/31/add-team
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 {
-  "empId":912,
-  "firstName":"Venky",
+  "empId":910,
+  "firstName":"Chaitanya",
   "role":"Backend",
   "startDate":"2023/03/10",
   "endDate":"",
@@ -43,7 +43,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZ
   "billingStatus":"billed",
   "exposedToCustomer":"yes",
   "allocationType":"permenant" ,
-  "projectId": 2
+  "projectId": 1
 }
 
 

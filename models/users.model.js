@@ -32,7 +32,7 @@ exports.User = sequelize.define(
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: "Waiting",
+      defaultValue: null,
     },
   },
   {

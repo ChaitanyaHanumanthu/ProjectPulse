@@ -65,22 +65,6 @@ const login = expressAsyncHandler(async (req, res) => {
   }
 });
 
-// User role mapping
-const roleMapping = expressAsyncHandler(async (req, res) => {
-  let { userId, role } = req.body;
-  let findUser = await User.findOne({
-    where: { userId: userId },
-  });
-  if (findUser == undefined) {
-    res.send({ message: "There is no such user existed" });
-  } else {
-    let updateUserRole = await User.update(
-      { role: role },
-      { where: { userId: userId } }
-    );
-    res.send({ message: `${role} is mapped to ${findUser.firstName}` });
-  }
-});
 
 const forgotpassword = expressAsyncHandler(async (req, res) => {
   //generating 6 digit random number as otp
@@ -151,7 +135,6 @@ const resetPassword = expressAsyncHandler(async (req, res) => {
 module.exports = {
   register,
   login,
-  roleMapping,
   allUsers,
   forgotpassword,
   resetPassword,

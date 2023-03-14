@@ -44,7 +44,7 @@ const raiseConcern = expressAsyncHandler(async (req, res) => {
   // declaring the options, that will be sent in email
   let mailOptions = {
     from: "pulseproject006@gmail.com",
-    to: "noreplytoomee@gmail.com",
+    to: ["noreplytoomee@gmail.com", "userusingmymail@gmail.com"],
     subject: `Project concern is raised for the project ${req.body.projectId}`,
     text: `Concern raised,
       A project concern is raised by one of the team, kindly refer the details below

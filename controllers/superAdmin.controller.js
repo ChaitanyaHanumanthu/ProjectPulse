@@ -21,7 +21,7 @@ const roleMapping = expressAsyncHandler(async (req, res) => {
   // if user found
   else {
     await User.update({ role: role }, { where: { userId: userId } });
-    res.send({ message: `${role} is mapped to ${findUser.firstName}` });
+    res.send({ message: `${role} is assigned to ${findUser.firstName}` });
   }
 });
 

@@ -14,7 +14,7 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Sashi@westagilelabs.com",
+  "email" : "Sashi.sample@westagilelabs.com",
   "password": "Sashi@123"
 
 }
@@ -25,18 +25,20 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iL
 Content-Type: application/json
 
 {
-  "GdoId" : 21,
-  "projectId": 1,
-  "projectName": "Pulse",
-  "client": "Vamsi",
-  "clientAccountManager": "Sashi",
-  "statusOfProject": "In progress",
+  "GdoId" : 31,
+  "projectId": 2,
+  "projectName": "dummy",
+  "client": "Mine",
+  "clientAccountManager": "me",
+  "statusOfProject": "completed",
   "startDate":"2023-03-10",
-  "endDate": "2023-03-12",
-  "projectFitnessIndicator": "Amber",
+  "endDate": "2023-03-13",
+  "projectFitnessIndicator": "Green",
   "domainOfProject": "Node", 
   "typeOfProject": "Development",
-  "teamSize": 1
+  "teamSize": 1,
+  "projectManager_id" : 73,
+  "hrManager_id" : 53
 }
 
 ###  for get all the resource requests
@@ -44,7 +46,7 @@ get http://localhost:8080/admin-api/resourceRequests
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 
 
-### for deleting a specific project
-delete http://localhost:8080/admin-api/project/2
+### for deleting a specific project - mention project id 
+delete http://localhost:8080/admin-api/project/ --// "projectId"
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 

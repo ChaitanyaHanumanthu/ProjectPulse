@@ -1,3 +1,16 @@
+### route for registration
+post http://localhost:8080/user-api/register
+Content-Type: application/json
+
+{
+  "userId": 21,
+  "firstName" : "Naveen",
+  "lastName" : "Yarramasu", 
+  "email" : "Naveen.fake@westagilelabs.com", 
+  "password": "Naveen@123"
+}
+
+
 ###Login route
 post http://localhost:8080/user-api/login
 Content-Type: application/json
@@ -14,8 +27,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZ
 Content-Type: application/json
 
 {
-  "userId" : 999, 
-  "role" : "employee"
+  "userId" : 73, 
+  "role" : "manager"
 }
 
 

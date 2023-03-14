@@ -8,7 +8,6 @@ const userApp = express.Router();
 const {
   register,
   login,
-  roleMapping,
   allUsers,
   forgotpassword,
   resetPassword,
@@ -19,9 +18,6 @@ userApp.post("/register", register);
 
 // route for loggin the user
 userApp.post("/login", login);
-
-// route for updating the roles
-userApp.put("/role-update", roleMapping);
 
 // route for getting all the users
 userApp.get("/users", allUsers);
