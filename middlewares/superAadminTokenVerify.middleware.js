@@ -10,7 +10,7 @@ exports.verifySuperAdminToken = (req, res, next) => {
   let bearerToken = req.headers.authorization;
   // checking weather there is a tokoen or not
   if (bearerToken == undefined) {
-    res.send({ message: "Unauthorized user" });
+    res.status(401).send({ message: "Unauthorized user" });
   } else {
     // splittin the token to get the access
     let token = bearerToken.split(" ")[1];
@@ -21,12 +21,12 @@ exports.verifySuperAdminToken = (req, res, next) => {
         next();
         // if role didn't match
       } else {
-        res.send({ message: "Unauthorized role access" });
+        res.status(401).send({ message: "Unauthorized role access" });
       }
       // res.send({ message: "loggedin successfull" });
     } catch (err) {
       // if token is expired
-      res.send({ message: "relogin again..." });
+      res.status(200).send({ message: "relogin again..." });
     }
   }
 };

@@ -10,7 +10,8 @@ const {
   createProject,
   getResourceRequests,
   getPorjectById,
-  deleteProject
+  deleteProject,
+  updateProjectById,
 } = require("..//controllers/admin.controller");
 
 // route for getting all projects
@@ -25,8 +26,11 @@ adminApp.get("/project/:projectId", getPorjectById);
 // route for get the resource requests
 adminApp.get("/resourceRequests", getResourceRequests);
 
+// route for update the project
+adminApp.put("/update-project/:projectId", updateProjectById);
+
 // route for delete the project
-adminApp.delete("/project/:projectId", deleteProject)
+adminApp.delete("/project/:projectId", deleteProject);
 
 // exporting the mini admin app
 module.exports = adminApp;

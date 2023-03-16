@@ -36,7 +36,7 @@ const register = expressAsyncHandler(async (req, res) => {
   // assigning the hased password to the request body
   req.body.password = hashedpwd;
   let create = await User.create(req.body);
-  res.send({ message: "User created", payload: create });
+  res.status(200).send({ message: "User created", payload: create });
 });
 
 // route for logging in
@@ -50,18 +50,18 @@ const login = expressAsyncHandler(async (req, res) => {
     let signedToken = jwt.sign(
       { role: findUser.dataValues.role, email: findUser.dataValues.email },
       process.env.secret_key,
-      { expiresIn: "24h" }
+      { expiresIn: "10d" }
     );
-    res.send({
+    res.status(200).send({
       message: `Welcome back ${
         findUser.dataValues.firstName + " " + findUser.dataValues.lastName
       }`,
       payload: signedToken,
     });
   } else if (findUser == undefined) {
-    res.send({ message: "No such user existed, Kindly register" });
+    res.status(204).send({ message: "No such user existed, Kindly register" });
   } else {
-    res.send({ message: "Wrong password, try again" });
+    res.status(200).send({ message: "Wrong password, try again" });
   }
 });
 
@@ -96,16 +96,16 @@ const forgotpassword = expressAsyncHandler(async (req, res) => {
     //delete OTP from object
     delete otps[req.body.email];
   }, 30000);
-  res.send({ message: "OTP to reset your password is sent to your email" });
+  res.status(200).send({ message: "OTP to reset your password is sent to your email" });
 });
 
 // route for getting all the users
 const allUsers = expressAsyncHandler(async (req, res) => {
   let allUsers = await User.findAll();
   if (allUsers.length==0) {
-    res.send({ message: "There are no users existed" });
+    res.status(204).send({ message: "There are no users existed" });
   } else {
-    res.send({ message: "All users in the database: ", users: allUsers });
+    res.status(200).send({ message: "All users in the database: ", users: allUsers });
   }
 });
 
@@ -125,9 +125,9 @@ const resetPassword = expressAsyncHandler(async (req, res) => {
         },
       }
     );
-    res.send({ message: "Password reset sucessfully" });
+    res.status(200).send({ message: "Password reset sucessfully" });
   } else {
-    res.send({ message: "Invalid OTP, try again" });
+    res.status(403).send({ message: "Invalid OTP, try again" });
   }
 });
 
