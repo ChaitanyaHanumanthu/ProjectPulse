@@ -4,7 +4,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iL
 
 
 ### admin to get the project details by id
-get http://localhost:8080/admin-api/project/1
+get http://localhost:8080/admin-api/project/10
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 
 
@@ -25,11 +25,11 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iL
 Content-Type: application/json
 
 {
-  "GdoId" : 31,
-  "projectId": 2,
-  "projectName": "dummy",
-  "client": "Mine",
-  "clientAccountManager": "me",
+  "GdoId" : 201,
+  "projectId": 10,
+  "projectName": "test",
+  "client": "test",
+  "clientAccountManager": "test",
   "statusOfProject": "completed",
   "startDate":"2023-03-10",
   "endDate": "2023-03-13",
