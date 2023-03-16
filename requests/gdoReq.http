@@ -9,14 +9,14 @@ Content-Type: application/json
 
 
 ### projects under gdo 
-get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
+get http://localhost:8080/gdo-api/gdo/201/projectPortfolioDashboard
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
 
 
 ### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/31/projectDetailedView/1
+get http://localhost:8080/gdo-api/gdo/201/projectDetailedView/10
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 
@@ -29,31 +29,31 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZ
 
 
 ### to add team members
-post http://localhost:8080/gdo-api/gdo/31/add-team
+post http://localhost:8080/gdo-api/gdo/201/add-team
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 
 {
-  "empId":910,
-  "firstName":"Chaitanya",
-  "role":"Backend",
+  "empId":922,
+  "firstName":"sekhar",
+  "role":"testing",
   "startDate":"2023/03/10",
   "endDate":"",
   "status":"In Progress",
   "billingStatus":"billed",
   "exposedToCustomer":"yes",
   "allocationType":"permenant" ,
-  "projectId": 1
+  "projectId": 10
 }
 
 
 ### raise a resource request
-post http://localhost:8080/gdo-api/gdo/31/raise-resource-request
+post http://localhost:8080/gdo-api/gdo/201/raise-resource-request
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA3MTczLCJleHAiOjE2Nzg3OTM1NzN9.lKQGOTCDsD-BC_dflTHNMWSB1Ti-Tiz_ufN3o83tfnk
 
 {
-  "gdoId" : 21,
-  "projectId" : 2,
-  "requestDesc" : "We need few more team members"
+  "gdoId" : 201,
+  "projectId" : 10,
+  "requestDesc" : "Resource request is raised"
 }

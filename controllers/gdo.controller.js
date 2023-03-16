@@ -52,7 +52,7 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
       projectId: req.params.projectId,
       GdoId: req.params.GdoId,
     },
-    attributes: { exclude: ["projectManager_id", "hrManager_id", "GdoId", "teamSize"] },
+    attributes: { exclude: [ "teamSize"] },
     include: [
       {
         association: Project.Updates,
@@ -110,11 +110,14 @@ const getConcerns = expressAsyncHandler(async (req, res) => {
 
 // controller for adding team composition
 const addTeam = expressAsyncHandler(async (req, res) => {
+  // fromm url parameters
   let GdoId = req.params.GdoId;
   let gdoCheck = await User.findOne({ where: { userId: GdoId } });
+  // if there is no gdo
   if (gdoCheck == undefined) {
     res.send({ Message: `There is no gdo existed with id ${GdoId}` });
   } else {
+    // if there is gdo exists
     let team = await Team.create(req.body);
     res.send({ Message: "Team added Successfully", Team: team });
   }

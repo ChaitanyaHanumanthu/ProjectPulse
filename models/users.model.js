@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
+const {Employees} = require("./employee.model")
 
 exports.User = sequelize.define(
   "users",
@@ -8,7 +9,10 @@ exports.User = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true,
+      autoIncrement: true,references:{
+        model: Employees, 
+        key: "empId"
+      }
     },
     firstName: {
       type: DataTypes.STRING,
@@ -32,7 +36,7 @@ exports.User = sequelize.define(
     },
     role: {
       type: DataTypes.STRING,
-      defaultValue: null,
+      defaultValue: "null",
     },
   },
   {

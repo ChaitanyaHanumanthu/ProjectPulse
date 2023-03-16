@@ -16,24 +16,24 @@ const roleMapping = expressAsyncHandler(async (req, res) => {
   });
   // if userRecord is empty means no user found
   if (findUser == undefined) {
-    res.send({ message: "There is no such user existed" });
+    res.status(404).send({ message: "There is no such user existed" });
   }
   // if user found
   else {
     await User.update({ role: role }, { where: { userId: userId } });
-    res.send({ message: `${role} is assigned to ${findUser.firstName}` });
+    res.status(200).send({ message: `${role} is assigned to ${findUser.firstName}` });
   }
 });
 
 // controller for getting all the users
 const allUsers = expressAsyncHandler(async (req, res) => {
-  let allUsers = await User.findAll();
+  let allUsers = await User.findAll({attributes:{exclude:["password"]}});
   // if the users is empty
-  if (allUsers == undefined) {
-    res.send({ message: "There are no reistered users" });
+  if (allUsers.length == 0) {
+    res.status(404).send({ message: "There are no reistered users" });
     // if there are more than one users
   } else {
-    res.send({ message: "All users data are: ", users: allUsers });
+    res.status(200).send({ message: "All users data are: ", users: allUsers });
   }
 });
 
@@ -42,15 +42,15 @@ const pendignUsers = expressAsyncHandler(async (req, res) => {
   // finding all the users based on the role
   let allUsers = await User.findAll({
     where: {
-      role: "waiting",
+      role: "null",
     },
   });
   // if the founder users length is 0
   if (allUsers.length == 0) {
-    res.send({ message: "There is no pending users" });
+    res.status(404).send({ message: "There is no pending users" });
     // if the founders user length is more than 1
   } else {
-    res.send({ message: "All users data are: ", users: allUsers });
+    res.status(200).send({ message: "All users data are: ", users: allUsers });
   }
 });
 

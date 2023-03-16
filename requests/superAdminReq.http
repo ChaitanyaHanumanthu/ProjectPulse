@@ -3,11 +3,11 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId": 21,
-  "firstName" : "Naveen",
-  "lastName" : "Yarramasu", 
-  "email" : "Naveen.fake@westagilelabs.com", 
-  "password": "Naveen@123"
+  "userId": 201,
+  "firstName" : "test",
+  "lastName" : "test", 
+  "email" : "test.fake@westagilelabs.com", 
+  "password": "test@123"
 }
 
 
@@ -16,8 +16,8 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Naveen@westagilelabs.com",
-  "password": "Naveen@123"
+  "email" : "test.fake@westagilelabs.com",
+  "password": "test@123"
 }
 
 
@@ -27,8 +27,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZ
 Content-Type: application/json
 
 {
-  "userId" : 73, 
-  "role" : "manager"
+  "userId" : 201, 
+  "role" : "gdo"
 }
 
 
