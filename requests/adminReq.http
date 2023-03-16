@@ -1,13 +1,3 @@
-### admin to get all projects
-get http://localhost:8080/admin-api/projects
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
-
-
-### admin to get the project details by id
-get http://localhost:8080/admin-api/project/10
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
-
-
 
 ### login route
 post http://localhost:8080/user-api/login
@@ -18,6 +8,16 @@ Content-Type: application/json
   "password": "Sashi@123"
 
 }
+
+### admin to get all projects
+get http://localhost:8080/admin-api/projects
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+
+
+### admin to get the project details by id
+get http://localhost:8080/admin-api/project/10
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODk3NTIzMSwiZXhwIjoxNjc5ODM5MjMxfQ.SCFgnKRkIad6PiyHab0eucjw0fYHpUbvMI2gubAJ-sI
+
 
 ### Creating a project 
 post http://localhost:8080/admin-api/project
@@ -40,6 +40,33 @@ Content-Type: application/json
   "projectManager_id" : 73,
   "hrManager_id" : 53
 }
+
+
+
+### updating the project
+put http://localhost:8080/admin-api/update-project/10
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODk3NTIzMSwiZXhwIjoxNjc5ODM5MjMxfQ.SCFgnKRkIad6PiyHab0eucjw0fYHpUbvMI2gubAJ-sI
+Content-Type: application/json
+
+{
+  "GdoId" : 31,
+  "projectId": 15,
+  "projectName": "test",
+  "client": "test",
+  "clientAccountManager": "test",
+  "statusOfProject": "completed",
+  "startDate":"2023-03-10",
+  "endDate": "2023-03-13",
+  "projectFitnessIndicator": "Green",
+  "domainOfProject": "Node", 
+  "typeOfProject": "Development",
+  "teamSize": 1,
+  "projectManager_id" : 73,
+  "hrManager_id" : 53
+}
+
+
+
 
 ###  for get all the resource requests
 get http://localhost:8080/admin-api/resourceRequests

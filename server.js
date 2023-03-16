@@ -6,7 +6,6 @@ const app = express();
 // importing dotenv
 require("dotenv").config();
 port = process.env.port; // assigning the port number
-app.listen(port, () => console.log(`server initiated at ${port}`));
 
 
 // Importing router apps
@@ -41,7 +40,7 @@ sequelize
   .catch((err) => {
     console.log("Error at db connection: ", err);
   });
-sequelize.sync({alter:true});
+sequelize.sync();
 
 
 // importing models from the sequelize
@@ -99,3 +98,7 @@ app.use("*", (req, res) => {
 app.use((err, req, res, next) => {
   res.send({ Error_message: err.message });
 });
+
+
+
+module.exports = app;
