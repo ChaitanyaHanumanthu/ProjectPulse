@@ -75,7 +75,7 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
   });
   // If there is no updates
   if (allUpdates.length == 0) {
-    res.status(204).send({
+    res.status(200).send({
       message: `There is no Updates under this project id ${req.params.projectId}`,
     });
   }
@@ -88,19 +88,35 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// controller for getting the project under manager
+const getProjectsUnderPm = expressAsyncHandler(async (req, res) => {
+  let projectsUnderPm = await Project.findAll({
+    where: { projectManager_id: req.params.projectManager_id },
+  });
+  if (projectsUnderPm.length == 0) {
+    res.status(200).send({ message: "There are no projects under this Project manager" });
+  } else {
+    res.status(200).send({
+      message: "All the projectss under This manager is: ",
+      project: projectsUnderPm,
+    });
+  }
+});
+
 // controller for getting the updates before two weeks
 const getLastTwoWeekUpdates = expressAsyncHandler(async (req, res) => {
-    let lastTwoWeekUpdates = await Updates.findAll({
-      where: {
-        date: {
-          [Op.gt]: new Date(Date.now()-1000*60*60*24*14) //milliseconds for 14 days
-        },
+  let lastTwoWeekUpdates = await Updates.findAll({
+    where: {
+      date: {
+        [Op.gt]: new Date(Date.now() - 1000 * 60 * 60 * 24 * 14), //milliseconds for 14 days
       },
-    });
-    if(lastTwoWeekUpdates.length==0){
-      res.status(204).send({message: "There are no updates from last two weeks"})
-    }else{
-      
+    },
+  });
+  if (lastTwoWeekUpdates.length == 0) {
+    res
+      .status(200)
+      .send({ message: "There are no updates from last two weeks" });
+  } else {
     res.status(200).send({
       message: `All updates from the project ${req.params.projectId}`,
       updates: lastTwoWeekUpdates,
@@ -126,7 +142,7 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
   });
   // if the concern count is 0
   if (allConcerns.length == 0) {
-    res.status(204).send({
+    res.status(200).send({
       message: `There is no concerns under this project id ${req.params.projectId}`,
     });
     // if the concern count is more than 1
@@ -145,5 +161,6 @@ module.exports = {
   getAllUpdates,
   getAllConcerns,
   deleteUpdate,
-  getLastTwoWeekUpdates
+  getLastTwoWeekUpdates,
+  getProjectsUnderPm,
 };

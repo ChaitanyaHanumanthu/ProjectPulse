@@ -5,7 +5,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlc
 
 ### getting last week updates
 get http://localhost:8080/manager-api/project/1/2-week-updates
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwODg5MiwiZXhwIjoxNjc4Nzk1MjkyfQ.hhibzm9XAJLR2cdOxxMxu812AVIiIrtcvnsWPp0fGrY
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2Nzg5NzgzMjAsImV4cCI6MTY3OTg0MjMyMH0.4c66RLapn3bcmozMmO0hY7kuuIdxWqx2dZ2Ym0jSU6o
 
 
 
@@ -14,15 +14,19 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Hari@westagilelabs.com",
+  "email" : "Hari.sample@westagilelabs.com",
   "password": "Hari@123"
 }
 
 
+### getting all the projects under his maintanence
+get http://localhost:8080/manager-api/project-manager-id/73
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2Nzg5NzgzMjAsImV4cCI6MTY3OTg0MjMyMH0.4c66RLapn3bcmozMmO0hY7kuuIdxWqx2dZ2Ym0jSU6o
+
 ### getting all the concerns from all projects
 
 get http://localhost:8080/manager-api/project/2/concerns
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwOTI2MCwiZXhwIjoxNjc4Nzk1NjYwfQ.sjzOdUJXSOeEWi36Qh9x2L7nEF1hRXoNUIVXc05wv1g
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2Nzg5NzgzMjAsImV4cCI6MTY3OTg0MjMyMH0.4c66RLapn3bcmozMmO0hY7kuuIdxWqx2dZ2Ym0jSU6o
 
 
 ### Raising an update by the project manager

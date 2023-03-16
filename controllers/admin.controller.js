@@ -15,7 +15,7 @@ const getProjects = expressAsyncHandler(async (req, res) => {
     ],
   });
   if (allProjects.length == 0) {
-    res.status(204).send({ message: "There is no projects to display" });
+    res.status(200).send({ message: "There is no projects to display" });
   } else {
     res.status(200).send({
       message: "All the project details are here",
@@ -36,7 +36,7 @@ const getPorjectById = expressAsyncHandler(async (req, res) => {
   // if there are no projects with id
   if (findProject == undefined) {
     res
-      .status(204)
+      .status(200)
       .send({ message: "There is no such project existed with id" });
   } else {
     // projects with the particular id
@@ -75,7 +75,7 @@ const getResourceRequests = expressAsyncHandler(async (req, res) => {
   let resources = await Resource.findAll();
   // if there are no resources
   if (resources.length == 0) {
-    res.status(204).send({ message: "There is no resource requests" });
+    res.status(200).send({ message: "There is no resource requests" });
     // if there are more than one resources
   } else {
     res.status(201).send({

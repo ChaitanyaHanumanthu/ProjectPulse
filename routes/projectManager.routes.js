@@ -12,6 +12,7 @@ const {
   getAllConcerns,
   deleteUpdate,
   getLastTwoWeekUpdates,
+  getProjectsUnderPm,
 } = require("../controllers/projectManager.controller");
 
 // route for creating an update
@@ -23,8 +24,11 @@ managerApp.post("/concern", raiseConcern);
 // route for getting all the updates
 managerApp.get("/project/:projectId/all-updates", getAllUpdates);
 
+// routes for getting all the projects under him
+managerApp.get("/project-manager-id/:projectManager_id", getProjectsUnderPm);
+
 // route for getting all the updates from last two weeks
-managerApp.get("/project/:projectId/2-week-updates", getLastTwoWeekUpdates)
+managerApp.get("/project/:projectId/2-week-updates", getLastTwoWeekUpdates);
 
 // routue for getting all the concerns
 managerApp.get("/project/:projectId/concerns", getAllConcerns);

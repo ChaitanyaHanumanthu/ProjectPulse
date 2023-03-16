@@ -59,12 +59,11 @@ const login = expressAsyncHandler(async (req, res) => {
       payload: signedToken,
     });
   } else if (findUser == undefined) {
-    res.status(204).send({ message: "No such user existed, Kindly register" });
+    res.status(200).send({ message: "No such user existed, Kindly register" });
   } else {
     res.status(200).send({ message: "Wrong password, try again" });
   }
 });
-
 
 const forgotpassword = expressAsyncHandler(async (req, res) => {
   //generating 6 digit random number as otp
@@ -96,16 +95,20 @@ const forgotpassword = expressAsyncHandler(async (req, res) => {
     //delete OTP from object
     delete otps[req.body.email];
   }, 30000);
-  res.status(200).send({ message: "OTP to reset your password is sent to your email" });
+  res
+    .status(200)
+    .send({ message: "OTP to reset your password is sent to your email" });
 });
 
 // route for getting all the users
 const allUsers = expressAsyncHandler(async (req, res) => {
   let allUsers = await User.findAll();
-  if (allUsers.length==0) {
-    res.status(204).send({ message: "There are no users existed" });
+  if (allUsers.length == 0) {
+    res.status(200).send({ message: "There are no users existed" });
   } else {
-    res.status(200).send({ message: "All users in the database: ", users: allUsers });
+    res
+      .status(200)
+      .send({ message: "All users in the database: ", users: allUsers });
   }
 });
 
