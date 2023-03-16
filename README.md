@@ -62,7 +62,6 @@ Hr manager
 get the user details who are registered to this portal
 assign / update the role to the registered users
 update user details
-delete the regitered employee -(soft delete)
 ```
 
 ### Admin User roles (Special people)
@@ -78,10 +77,11 @@ delete the regitered employee -(soft delete)
  
 ### Gdo roles 
 ```
- 1.Get all projects under him.
+ 1.Get all projects under him. - projectPortfolio dashboard
  2.Get specific project details (Detailed overview,project concerns, project updates team Composition)
  3.Assigning projects to employees(Creating a team)
  4.Raising Resource requests
+ 5.Getting concerns
 ```
 
 ### Project manager roles
