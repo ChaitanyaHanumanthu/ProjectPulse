@@ -40,7 +40,7 @@ sequelize
   .catch((err) => {
     console.log("Error at db connection: ", err);
   });
-sequelize.sync();
+sequelize.sync(); 
 
 
 // importing models from the sequelize
