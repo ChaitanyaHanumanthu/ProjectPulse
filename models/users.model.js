@@ -1,18 +1,15 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../databases/db.config");
-const {Employees} = require("./employee.model")
+const { Employees } = require("./employee.model");
 
 exports.User = sequelize.define(
   "users",
   {
     userId: {
       type: DataTypes.INTEGER,
-      primaryKey: true,
-      allowNull: false,
-      autoIncrement: true,references:{
-        model: Employees, 
-        key: "empId"
-      }
+      // primaryKey: true,
+      allowNull: true,
+      autoIncrement: true,
     },
     firstName: {
       type: DataTypes.STRING,
@@ -23,8 +20,7 @@ exports.User = sequelize.define(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
+      primaryKey: true,
       // validate: {
       //   isEmail: true,
       //   contains: "@westagilelabs.com",

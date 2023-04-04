@@ -41,15 +41,18 @@ post http://localhost:8080/user-api/forgot-password
 Content-Type: application/json
 
 {
-  "email" : "userusingmymail@gmail.com"
+  "email" : "Srinivas.sample@westagilelabs.com"
 }
 
 
 ### reset the password
-post http://localhost:8080/user-api/reset-password/email/userusingmymail@gmail.com
+post http://localhost:8080/user-api/reset-password/email/Srinivas.sample@westagilelabs.com
 Content-Type: application/json
 
 {
-  "otp" : 10431,
+  "otp" : 43419,
   "password" : "Sample@9"
 }
+
+### getting  all the managers
+get http://localhost:8080/user-api/managers

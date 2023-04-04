@@ -9,6 +9,9 @@ Content-Type: application/json
   "password": "Naveen@123"
 }
 
+###
+get http://localhost:8080/user-api/temp
+
 
 ### Role mapping to the registered users.
 put http://localhost:8080/super-admin-api/role-update
@@ -226,11 +229,11 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId": 1000,
-  "firstName" : "Chinna",
-  "lastName" : "Hanumanthu", 
-  "email" : "userusingymail@gmail.com", 
-  "password": "Chinna@123"
+  "userId": 555,
+  "firstName" : "test",
+  "lastName" : "test", 
+  "email" : "test@gmail.com", 
+  "password": "test"
 }
 
 
@@ -252,10 +255,10 @@ post http://localhost:8080/user-api/register
 Content-Type: application/json
 
 {
-  "userId":999,
+  "userId":777,
   "firstName" : "Chaitanya",
   "lastName" : "Hanumanthu", 
-  "email" : "userusingmymail@gmail.com", 
+  "email" : "userusinigmymail@gmail.com", 
   "password": "Chaitanya@123"
 }
 

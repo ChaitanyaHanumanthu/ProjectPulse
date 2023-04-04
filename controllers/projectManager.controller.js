@@ -30,7 +30,7 @@ const raiseUpdate = expressAsyncHandler(async (req, res) => {
     include: { association: Project.Updates },
   });
   res.status(200).send({
-    message: `Update about the project by ${req.body.userId}`,
+    message: `Update about the project by ${req.body.UserId}`,
     update: projectUpdate,
   });
 });
@@ -75,7 +75,7 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
   });
   // If there is no updates
   if (allUpdates.length == 0) {
-    res.status(204).send({
+    res.status(200).send({
       message: `There is no Updates under this project id ${req.params.projectId}`,
     });
   }
@@ -88,19 +88,37 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// controller for getting the project under manager
+const getProjectsUnderPm = expressAsyncHandler(async (req, res) => {
+  let projectsUnderPm = await Project.findAll({
+    where: { projectManager_id: req.params.projectManager_id, status: true },
+  });
+  if (projectsUnderPm.length == 0) {
+    res
+      .status(201)
+      .send({ message: "There are no projects under this Project manager" });
+  } else {
+    res.status(200).send({
+      message: "All the projectss under This manager is: ",
+      Projects: projectsUnderPm,
+    });
+  }
+});
+
 // controller for getting the updates before two weeks
 const getLastTwoWeekUpdates = expressAsyncHandler(async (req, res) => {
-    let lastTwoWeekUpdates = await Updates.findAll({
-      where: {
-        date: {
-          [Op.gt]: new Date(Date.now()-1000*60*60*24*14) //milliseconds for 14 days
-        },
+  let lastTwoWeekUpdates = await Updates.findAll({
+    where: {
+      date: {
+        [Op.gt]: new Date(Date.now() - 1000 * 60 * 60 * 24 * 14), //milliseconds for 14 days
       },
-    });
-    if(lastTwoWeekUpdates.length==0){
-      res.status(204).send({message: "There are no updates from last two weeks"})
-    }else{
-      
+    },
+  });
+  if (lastTwoWeekUpdates.length == 0) {
+    res
+      .status(200)
+      .send({ message: "There are no updates from last two weeks" });
+  } else {
     res.status(200).send({
       message: `All updates from the project ${req.params.projectId}`,
       updates: lastTwoWeekUpdates,
@@ -126,7 +144,7 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
   });
   // if the concern count is 0
   if (allConcerns.length == 0) {
-    res.status(204).send({
+    res.status(200).send({
       message: `There is no concerns under this project id ${req.params.projectId}`,
     });
     // if the concern count is more than 1
@@ -138,6 +156,30 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// detailed view of project
+const projectById = expressAsyncHandler(async (req, res) => {
+  let findProject = await Project.findOne({
+    where: { projectId: req.params.projectId },
+    include: [
+      { association: "updates" },
+      { association: "concerns" },
+      { association: Project.Team },
+    ],
+  });
+  // if there are no projects with id
+  if (findProject == undefined) {
+    res
+      .status(200)
+      .send({ message: "There is no such project existed with id" });
+  } else {
+    // projects with the particular id
+    res.status(200).send({
+      message: "The particular project details are: ",
+      payload: findProject,
+    });
+  }
+});
+
 // exporting the controllers
 module.exports = {
   raiseUpdate,
@@ -145,5 +187,7 @@ module.exports = {
   getAllUpdates,
   getAllConcerns,
   deleteUpdate,
-  getLastTwoWeekUpdates
+  getLastTwoWeekUpdates,
+  getProjectsUnderPm,
+  projectById,
 };

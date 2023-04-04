@@ -14,11 +14,8 @@ exports.Team = sequelize.define(
   {
     empId: {
       primaryKey: true,
+      autoIncrement: true,
       type: DataTypes.INTEGER,
-      references: {
-        model: Employees,
-        key: "empId",
-      },
     },
     projectId: {
       type: DataTypes.INTEGER,
@@ -57,3 +54,5 @@ exports.Team = sequelize.define(
     freezeTableName: true,
   }
 );
+
+(async () => await this.Team.sync())();

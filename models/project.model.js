@@ -8,7 +8,7 @@ exports.Project = sequelize.define(
     projectId: {
       type: DataTypes.INTEGER,
       primaryKey: true,
-      // autoIncrement: true,
+      autoIncrement: true,
     },
     projectName: {
       type: DataTypes.STRING,
@@ -47,7 +47,7 @@ exports.Project = sequelize.define(
     },
     teamSize: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: true,
     },
     projectManager_id: {
       type: DataTypes.INTEGER,
@@ -72,6 +72,10 @@ exports.Project = sequelize.define(
         key: "userId",
       },
     },
+    status: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
   },
   {
     createdAt: false,
@@ -80,3 +84,5 @@ exports.Project = sequelize.define(
     freezeTableName: true,
   }
 );
+
+(async () => await this.Project.sync())();

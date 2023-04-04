@@ -11,26 +11,26 @@ Content-Type: application/json
 
 ### admin to get all projects
 get http://localhost:8080/admin-api/projects
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDUxNTg1OSwiZXhwIjoxNjgxMzc5ODU5fQ.FcL0JnSN2FCeFy8qQYjgUHLu7FQYO7Dhd9RyJ7xgL-A
 
 
 ### admin to get the project details by id
-get http://localhost:8080/admin-api/project/10
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODk3NTIzMSwiZXhwIjoxNjc5ODM5MjMxfQ.SCFgnKRkIad6PiyHab0eucjw0fYHpUbvMI2gubAJ-sI
+get http://localhost:8080/admin-api/project/7
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDAxMjk5MywiZXhwIjoxNjgwODc2OTkzfQ.SqlcefPgKY92gNCdVVI6tqSFlFHi9QzPQgxfUKxJ9Fo
 
 
 ### Creating a project 
 post http://localhost:8080/admin-api/project
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDA3MzQ4NSwiZXhwIjoxNjgwOTM3NDg1fQ.l9fcgq7XZOQ6byEPVY0OcKmNqk_xTcl2GLW5Rbg2xn0
 Content-Type: application/json
 
 {
   "GdoId" : 201,
-  "projectId": 10,
+  "projectId": 225,
   "projectName": "test",
   "client": "test",
   "clientAccountManager": "test",
-  "statusOfProject": "completed",
+  "statusOfProject": "completed", 
   "startDate":"2023-03-10",
   "endDate": "2023-03-13",
   "projectFitnessIndicator": "Green",
@@ -70,10 +70,28 @@ Content-Type: application/json
 
 ###  for get all the resource requests
 get http://localhost:8080/admin-api/resourceRequests
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDQ1MDk1OSwiZXhwIjoxNjgxMzE0OTU5fQ.-IAQBJjzSAKAydfFOBSYXvTe-nxoYhxTFLkL-sMZ1ug
+
 
 
 ### for deleting a specific project - mention project id 
-delete http://localhost:8080/admin-api/project/ --// "projectId"
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
+# delete http://localhost:8080/admin-api/project/ --// "projectId"
+# Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAyNjE4LCJleHAiOjE2Nzg3ODkwMTh9.XvVO-f6XTx71KiWoRoEtr_lzrVeHdI0hlnLCfjRAu8E
 
+###
+put http://localhost:8080/admin-api/project/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDUwNDg4NCwiZXhwIjoxNjgxMzY4ODg0fQ.voCZstn7AyH7spaCB-jnQg7f4YsJrx-I3N-Vj7Cx0Vk
+Content-Type: application/json
+
+{
+  "status" : false
+}
+
+### updates of the project
+get http://localhost:8080/admin-api/updates/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDAxMjk5MywiZXhwIjoxNjgwODc2OTkzfQ.SqlcefPgKY92gNCdVVI6tqSFlFHi9QzPQgxfUKxJ9Fo
+
+
+### concerns of the project
+get http://localhost:8080/admin-api/concerns/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJlbWFpbCI6IlNhc2hpLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDAxMjk5MywiZXhwIjoxNjgwODc2OTkzfQ.SqlcefPgKY92gNCdVVI6tqSFlFHi9QzPQgxfUKxJ9Fo
