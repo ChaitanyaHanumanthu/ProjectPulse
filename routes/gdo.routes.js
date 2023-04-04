@@ -17,7 +17,7 @@ const {
 gdoApp.get("/gdo/:GdoId/projectPortfolioDashboard",getProjectPortfolioashboard);
 
 // route for getting the projects based on the projectId
-gdoApp.get("/gdo/:GdoId/projectDetailedView/:projectId", getProjectById);
+gdoApp.get("/project/:projectId", getProjectById);
 
 // route for get the projects concern
 gdoApp.get("/gdo/:GdoId/concerns", getConcerns);

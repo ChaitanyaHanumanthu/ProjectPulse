@@ -6,12 +6,10 @@ const { User } = require("../models/users.model");
 
 // controller for rolemapping
 const roleMapping = expressAsyncHandler(async (req, res) => {
-  // get the role and userId
-  let { userId, role } = req.body;
   // check the user
   let findUser = await User.findOne({
     where: {
-      userId: userId,
+      userId: req.params.userId,
     },
   });
   // if userRecord is empty means no user found
@@ -20,14 +18,16 @@ const roleMapping = expressAsyncHandler(async (req, res) => {
   }
   // if user found
   else {
-    await User.update({ role: role }, { where: { userId: userId } });
-    res.status(200).send({ message: `${role} is assigned to ${findUser.firstName}` });
+    await User.update({ role: req.body.role }, { where: { userId: req.params.userId } });
+    res
+      .status(200)
+      .send({ message: `${req.body.role} is assigned to ${findUser.firstName}`, payload: findUser });
   }
 });
 
 // controller for getting all the users
 const allUsers = expressAsyncHandler(async (req, res) => {
-  let allUsers = await User.findAll({attributes:{exclude:["password"]}});
+  let allUsers = await User.findAll({ attributes: { exclude: ["password"] } });
   // if the users is empty
   if (allUsers.length == 0) {
     res.status(404).send({ message: "There are no reistered users" });
@@ -54,5 +54,28 @@ const pendignUsers = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// controller for deleting the users
+const deleteUsers = expressAsyncHandler(async (req, res) => {
+  // finding the user based on the id
+
+  let findUser = await User.findOne({
+    where: {
+      userId: req.params.userId,
+    },
+  });
+
+  if (findUser == undefined) {
+    res.send({ message: "There is no such user existed" });
+  } else {
+    await User.destroy({
+      where: {
+        userId: req.params.userId,
+      },
+    });
+
+    res.send({ message: "The User is deleted", payload: findUser });
+  }
+});
+
 // exporting all the controllers
-module.exports = { roleMapping, allUsers, pendignUsers };
+module.exports = { roleMapping, allUsers, pendignUsers, deleteUsers };

@@ -16,18 +16,17 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "test.fake@westagilelabs.com",
-  "password": "test@123"
+  "email" : "Naveen.fake@westagilelabs.com",
+  "password": "Naveen@123"
 }
 
 
 ### Role mapping to the registered users.
-put http://localhost:8080/super-admin-api/role-update
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+put http://localhost:8080/super-admin-api/role-update/31
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuLmZha2VAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAwMDQxNTcsImV4cCI6MTY4MDg2ODE1N30.t58sL2RvhXCpTA-r3c7rAzd7SpYZrA-rYHZkgIyjrK8
 Content-Type: application/json
 
 {
-  "userId" : 201, 
   "role" : "gdo"
 }
 
@@ -42,3 +41,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZ
 ### getting all the users
 get http://localhost:8080/super-admin-api/pendingUsers
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzA2OTgwLCJleHAiOjE2Nzg3OTMzODB9.4u8kqJs1-cJW8xZkour6aXhcbJYdMEbdYv5iLUlNl_o
+
+
+
+### deleting the users
+delete http://localhost:8080/super-admin-api/delete/10013
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoic3VwZXJhZG1pbiIsImVtYWlsIjoiTmF2ZWVuLmZha2VAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2Nzk5OTQ1MDIsImV4cCI6MTY4MDg1ODUwMn0.YHaYJ156IwQeV2quwIMQtKSugF48niX0LQLDguEhoQY

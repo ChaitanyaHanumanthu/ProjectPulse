@@ -11,6 +11,7 @@ const {
   allUsers,
   forgotpassword,
   resetPassword,
+  getManagers,
 } = require("../controllers/user.controller");
 
 // route for creating an user
@@ -27,6 +28,10 @@ userApp.post("/forgot-password", forgotpassword);
 
 // route for resetting the password
 userApp.post("/reset-password/email/:email", resetPassword);
+
+// route for getting all the mangers
+userApp.get("/managers", getManagers);
+
 
 // exporting the userApp
 module.exports = userApp;

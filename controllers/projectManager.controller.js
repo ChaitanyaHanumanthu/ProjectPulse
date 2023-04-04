@@ -30,7 +30,7 @@ const raiseUpdate = expressAsyncHandler(async (req, res) => {
     include: { association: Project.Updates },
   });
   res.status(200).send({
-    message: `Update about the project by ${req.body.userId}`,
+    message: `Update about the project by ${req.body.UserId}`,
     update: projectUpdate,
   });
 });
@@ -91,14 +91,16 @@ const getAllUpdates = expressAsyncHandler(async (req, res) => {
 // controller for getting the project under manager
 const getProjectsUnderPm = expressAsyncHandler(async (req, res) => {
   let projectsUnderPm = await Project.findAll({
-    where: { projectManager_id: req.params.projectManager_id },
+    where: { projectManager_id: req.params.projectManager_id, status: true },
   });
   if (projectsUnderPm.length == 0) {
-    res.status(200).send({ message: "There are no projects under this Project manager" });
+    res
+      .status(201)
+      .send({ message: "There are no projects under this Project manager" });
   } else {
     res.status(200).send({
       message: "All the projectss under This manager is: ",
-      project: projectsUnderPm,
+      Projects: projectsUnderPm,
     });
   }
 });
@@ -154,6 +156,30 @@ const getAllConcerns = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// detailed view of project
+const projectById = expressAsyncHandler(async (req, res) => {
+  let findProject = await Project.findOne({
+    where: { projectId: req.params.projectId },
+    include: [
+      { association: "updates" },
+      { association: "concerns" },
+      { association: Project.Team },
+    ],
+  });
+  // if there are no projects with id
+  if (findProject == undefined) {
+    res
+      .status(200)
+      .send({ message: "There is no such project existed with id" });
+  } else {
+    // projects with the particular id
+    res.status(200).send({
+      message: "The particular project details are: ",
+      payload: findProject,
+    });
+  }
+});
+
 // exporting the controllers
 module.exports = {
   raiseUpdate,
@@ -163,4 +189,5 @@ module.exports = {
   deleteUpdate,
   getLastTwoWeekUpdates,
   getProjectsUnderPm,
+  projectById,
 };

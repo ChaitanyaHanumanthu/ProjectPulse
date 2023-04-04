@@ -13,7 +13,7 @@ exports.Updates = sequelize.define(
     },
     projectStatusUpdate: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     userId: {
       type: DataTypes.INTEGER,
@@ -39,7 +39,7 @@ exports.Updates = sequelize.define(
     },
     resourcingStatus: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     qualityStatus: {
       type: DataTypes.STRING,

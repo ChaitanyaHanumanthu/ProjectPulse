@@ -3,21 +3,22 @@ post http://localhost:8080/user-api/login
 Content-Type: application/json
 
 {
-  "email" : "Sandeep.sample@westagilelabs.com",
-  "password": "Sandeep@123"
+  "email" : "Alam.sample@westagilelabs.com",
+  "password": "Alam@123"
 }
 
 
 ### projects under gdo 
-get http://localhost:8080/gdo-api/gdo/201/projectPortfolioDashboard
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
+get http://localhost:8080/gdo-api/gdo/31/projectPortfolioDashboard
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJBbGFtLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDA4MDQ1NywiZXhwIjoxNjgwOTQ0NDU3fQ.jB-EdQMrv2cjbqCI9bobtzI56dCxJcFx9Jc3-pl1WAE
 
 
 
 
-### projects under gdo based on project id
-get http://localhost:8080/gdo-api/gdo/201/projectDetailedView/10
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
+# ### projects under gdo based on project id
+# # get http://localhost:8080/gdo-api/project/2
+# get http://localhost:8080/gdo-api/gdo/201/projectDetailedView
+# Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJBbGFtLnNhbXBsZUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY4MDA4MDQ1NywiZXhwIjoxNjgwOTQ0NDU3fQ.jB-EdQMrv2cjbqCI9bobtzI56dCxJcFx9Jc3-pl1WAE
 
 
 
@@ -29,7 +30,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZ
 
 
 ### to add team members
-post http://localhost:8080/gdo-api/gdo/201/add-team
+post http://localhost:8080/gdo-api/gdo/71/add-team
 Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiZ2RvIiwiZW1haWwiOiJTYW5kZWVwQHdlc3RhZ2lsZWxhYnMuY29tIiwiaWF0IjoxNjc4NzAzMTIzLCJleHAiOjE2Nzg3ODk1MjN9._hjuzUjg9SVGsSi4j_NDF327-oJIAhfeYsndZx0mdzA
 

@@ -20,8 +20,8 @@ Content-Type: application/json
 
 
 ### getting all the projects under his maintanence
-get http://localhost:8080/manager-api/project-manager-id/73
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2Nzg5NzgzMjAsImV4cCI6MTY3OTg0MjMyMH0.4c66RLapn3bcmozMmO0hY7kuuIdxWqx2dZ2Ym0jSU6o
+get http://localhost:8080/manager-api/project-manager/project/71
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAwNjg1ODQsImV4cCI6MTY4MDkzMjU4NH0._3dFbnfSks-epBX1mFbDv2AZl1Sdz9KNR1wtite06Oo
 
 ### getting all the concerns from all projects
 
@@ -30,8 +30,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlc
 
 
 ### Raising an update by the project manager
-post http://localhost:8080/manager-api/update
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
+post http://localhost:8080/manager-api/update/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAxNTE3NTEsImV4cCI6MTY4MTAxNTc1MX0.TrKUNx2uzJXsXPjJtQfx6R7j5bykeVQLnZBF7BDJUnQ
 Content-Type: application/json
 
 {
@@ -46,8 +46,8 @@ Content-Type: application/json
 }
 
 ### Raising an concern by the project manager
-post http://localhost:8080/manager-api/concern
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaUB3ZXN0YWdpbGVsYWJzLmNvbSIsImlhdCI6MTY3ODcwMzc3MywiZXhwIjoxNjc4NzkwMTczfQ.cGCxfEC8BjwX-RQr9hSX3wprXkIqnlsPRqhyyKYr_WM
+post http://localhost:8080/manager-api/concern/1
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAxNTE3NTEsImV4cCI6MTY4MTAxNTc1MX0.TrKUNx2uzJXsXPjJtQfx6R7j5bykeVQLnZBF7BDJUnQ
 Content-Type: application/json
 
 {
@@ -60,3 +60,8 @@ Content-Type: application/json
    "concernStatus": "notSolved",
    "concernMitigatedDate" : "2023-03-13"
 }
+
+
+### Getting the project details of his project
+get http://localhost:8080/manager-api/project/7
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoibWFuYWdlciIsImVtYWlsIjoiSGFyaS5zYW1wbGVAd2VzdGFnaWxlbGFicy5jb20iLCJpYXQiOjE2ODAwNjg1ODQsImV4cCI6MTY4MDkzMjU4NH0._3dFbnfSks-epBX1mFbDv2AZl1Sdz9KNR1wtite06Oo

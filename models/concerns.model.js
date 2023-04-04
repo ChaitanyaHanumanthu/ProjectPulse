@@ -31,7 +31,7 @@ exports.Concerns = sequelize.define(
     },
     concernRaisedDate: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: true,
     },
     concernSeverity: {
       type: DataTypes.STRING,
@@ -39,15 +39,15 @@ exports.Concerns = sequelize.define(
     },
     concernByClient: {
       type: DataTypes.BOOLEAN,
-      defaultValue: false,
+      defaultValue: true,
     },
     concernStatus: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     concernMitigatedDate: {
       type: DataTypes.DATEONLY,
-      allowNull: false,
+      allowNull: true,
     },
   },
   {
@@ -57,3 +57,4 @@ exports.Concerns = sequelize.define(
     freezeTableName: true,
   }
 );
+

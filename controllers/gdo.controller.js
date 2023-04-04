@@ -14,6 +14,7 @@ const getProjectPortfolioashboard = expressAsyncHandler(async (req, res) => {
   let allProjects = await Project.findAll({
     where: {
       GdoId: GdoId,
+      status: true,
     },
     attributes: [
       "projectId",
@@ -24,6 +25,7 @@ const getProjectPortfolioashboard = expressAsyncHandler(async (req, res) => {
       "startDate",
       "endDate",
       "projectFitnessIndicator",
+      "projectManager_id"
     ],
   });
   let gdo = await User.findOne({ where: { userId: GdoId } });
@@ -46,20 +48,19 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
   let allProjects = await Project.findOne({
     where: {
       projectId: req.params.projectId,
-      GdoId: req.params.GdoId,
     },
-    attributes: { exclude: ["teamSize"] },
     include: [
       {
-        association: Project.Updates,
-        attributes: { exclude: ["id", "userId"] },
+        association: "updates",
       },
-      { association: Project.Concerns, attributes: { exclude: ["projectId"] } },
+      { association: "concerns" },
       { association: Project.Team },
     ],
   });
   if (allProjects == undefined) {
-    res.status(200).send({ message: "There is no projects existed with projectId" });
+    res
+      .status(200)
+      .send({ message: "There is no projects existed with projectId" });
   } else {
     //  return project fitness, concern indicator ,Team members get these values from projectRecord
     let projectFitness = allProjects.dataValues.projectFitnessIndicator;
@@ -75,9 +76,9 @@ const getProjectById = expressAsyncHandler(async (req, res) => {
       message: `Here is the DETAILED VIEW OF THE PROJECT`,
       Project_Fitness: projectFitness,
       Concerns_Indicator: indicator,
-      teamSiz: teamSize,
+      teamSize: teamSize,
       Details: `All the project details are here`,
-      Projects: allProjects,
+      payload: allProjects,
     });
   }
 });
@@ -96,7 +97,9 @@ const getConcerns = expressAsyncHandler(async (req, res) => {
     res.status(200).send({ message: "There is no concerns" });
     // if there are more than concerns
   } else {
-    res.status(200).send({ message: "All concerns are: ", concerns: allConcerns });
+    res
+      .status(200)
+      .send({ message: "All concerns are: ", concerns: allConcerns });
   }
 });
 
@@ -107,7 +110,9 @@ const addTeam = expressAsyncHandler(async (req, res) => {
   let gdoCheck = await User.findOne({ where: { userId: GdoId } });
   // if there is no gdo
   if (gdoCheck == undefined) {
-    res.status(200).send({ Message: `There is no gdo existed with id ${GdoId}` });
+    res
+      .status(200)
+      .send({ Message: `There is no gdo existed with id ${GdoId}` });
   } else {
     // if there is gdo exists
     let team = await Team.create(req.body);
