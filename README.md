@@ -79,7 +79,7 @@ update user details
 ```
  1.Get all projects under him. - projectPortfolio dashboard
  2.Get specific project details (Detailed overview,project concerns, project updates team Composition)
- 3.Assigning projects to employees(Creating a team)
+ 3.Assigning projects to employees
  4.Raising Resource requests
  5.Getting concerns
 ```
@@ -89,7 +89,6 @@ update user details
 1.Raise project updates 
 2.Raise project concerns
 3.Get all the updates
-4.Get all the last two weeks updates
 5. Get all the concerns
 4.Get all the project under him
 ```
