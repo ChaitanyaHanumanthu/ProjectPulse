@@ -11,6 +11,7 @@ const {
   allUsers,
   forgotpassword,
   resetPassword,
+  getEmployees,
   getManagers,
 } = require("../controllers/user.controller");
 
@@ -31,6 +32,9 @@ userApp.post("/reset-password/email/:email", resetPassword);
 
 // route for getting all the mangers
 userApp.get("/managers", getManagers);
+
+// route for getting all the employees
+userApp.get("/employees", getEmployees)
 
 
 // exporting the userApp
