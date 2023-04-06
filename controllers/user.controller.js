@@ -16,6 +16,7 @@ require("dotenv").config();
 // importing nodemailer
 const nodemailer = require("nodemailer");
 const { ConnectionRefusedError } = require("sequelize");
+const { Employees } = require("../models/employee.model");
 
 // assigning transporter which will make the authentication connection
 const transporter = nodemailer.createTransport({
@@ -55,7 +56,7 @@ const login = expressAsyncHandler(async (req, res) => {
     let signedToken = jwt.sign(
       { role: findUser.dataValues.role, email: findUser.dataValues.email },
       process.env.secret_key,
-      { expiresIn: "10d" }
+      { expiresIn: "12h" }
     );
     res.status(200).send({
       message: `Welcome back`,
@@ -151,6 +152,11 @@ const resetPassword = expressAsyncHandler(async (req, res) => {
   }
 });
 
+// controller for getting all the employees
+const getEmployees = expressAsyncHandler(async (req, res) => {
+  let employees = await Employees.findAll();
+  res.send({ message: "Employees are", payload: employees });
+});
 // exporting the controllers - request handlers
 module.exports = {
   register,
@@ -159,4 +165,5 @@ module.exports = {
   forgotpassword,
   resetPassword,
   getManagers,
+  getEmployees,
 };

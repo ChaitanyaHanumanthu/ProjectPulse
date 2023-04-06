@@ -56,3 +56,8 @@ Content-Type: application/json
 
 ### getting  all the managers
 get http://localhost:8080/user-api/managers
+
+
+
+### getting all the employees
+get http://localhost:8080/user-api/employees
